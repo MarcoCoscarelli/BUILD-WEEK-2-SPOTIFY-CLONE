@@ -1,0 +1,388 @@
+@import "./partials/bootstrap-overrides";
+@import "./partials/general";
+@import "./partials/navmobile";
+
+#container {
+  display: flex;
+  overflow-x: hidden;
+  height: calc(100vh - 100px);
+  scroll-behavior: smooth;
+  overflow-y: auto;
+
+  header, aside {
+    flex: 0 0 auto;
+  }
+
+  header {
+    min-width: 300px;
+    overflow-y: auto;
+  }
+
+  aside {
+    min-width: 250px;
+  }
+
+  main {
+    flex-grow: 1;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+    .container, .container-sm {
+        max-width: none;
+    }
+    main {
+      max-height: none;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: inherit;
+    }
+    #container {
+      min-height: 100vh;
+    }
+  }
+
+#hero {
+    margin-top: 3rem;
+    color: $light;
+
+    #album-art {
+        border-radius: 6px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        padding: 0;
+    }
+
+    .title-wrapper {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        height: 100px; 
+        line-height: 100px; 
+    }
+    
+    .title-content {
+        display: inline-block;
+        position: absolute;
+        width: max-content;
+        will-change: transform; 
+        animation: title-animation 20s linear infinite;
+    }
+
+    .title-content:hover {
+        animation-play-state: paused;
+    }    
+    
+    @keyframes title-animation {
+        0%, 20% { 
+            transform: translateX(0);  
+        }
+        100% {
+            transform: translate(-100%);
+        }
+    }
+    
+    
+    h1 {
+        margin: 0;
+        font-size: 80px;
+        font-weight: 800;
+        letter-spacing: -2px;
+        overflow: hidden;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        img {
+            border-radius: 50%;
+            width: 30px;
+            margin: 0;
+        }
+
+        h6 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        a {
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+//tablet 
+@media (max-width: 768px) {
+    #hero {
+
+        #album-art {
+            border-radius: 4px;
+            width: 400px;
+        }
+
+    .title-wrapper {
+        height: 70px; 
+        line-height: 70px; 
+    }
+    h1 {
+        font-size: 50px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        overflow: hidden;
+    }
+    p {
+        opacity: 0;
+    }
+  }
+}
+
+#tracklist-section {
+    p {
+        margin: 0;
+        color: $mid-light;
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 15px;
+    }
+
+    background-color: $darker;
+    border-radius: 6px;
+    margin-top: 1rem;
+    padding-top:1rem;
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.5rem;
+    
+    .container {
+        min-height: 100vh;
+        
+        svg {
+            cursor: pointer;
+            width: 30px;
+            fill: $mid-light;
+            transition: transform 0.2s ease-in-out;
+
+                &:hover{
+                fill: $light;
+                transform: scale(1.1);
+                }
+            &.play-btn {
+                fill: $primary;
+                width: 50px;
+            }
+
+        }
+        .list {
+            margin-left: auto;
+            &:hover {
+                color: $light;
+                p {
+                    color: $light;
+                }
+                svg {
+                    fill: currentColor;
+                }
+            } 
+            & svg {
+                width: 16px;
+                &:hover{
+                    transform: none;
+                }
+            }
+        }
+
+        .title-section {
+            color: $mid-light;
+            margin-block: 1rem;
+            padding-inline: 2rem;
+            padding-bottom: 5px;
+            border-bottom: 1px solid $secondary-emphasis;
+
+            & svg {
+                width: 16px;
+                margin-right: 1.8rem;
+                &:hover{
+                    transform: none;
+                    fill: currentColor;
+                }
+            }
+        }
+
+        #tracklist-cards {
+            color: $mid-light;
+            margin-block: 0.5rem;
+
+            .track-card {
+                padding-inline: 2rem;
+                padding-block: 0.5rem;
+                border-radius: 6px;
+                position: relative;
+                overflow: hidden;
+
+                &:hover {
+                    background-color: $secondary-emphasis;
+
+                    span{
+                        opacity: 0;
+                    }
+
+                    i {
+                        opacity: 1;
+                        color: $light;
+                    }
+                    svg {
+                        opacity: 1;
+                    }
+                    #substitute-play {
+                        fill: $light;
+                    }
+                } 
+            }
+            ///
+            h5 {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: fade;
+            }
+
+            span, h5, small {
+                margin: 0;
+            }
+            span, h5 {
+                font-weight: 600;
+                font-size: 16px;
+                color: $light;
+            }
+            small {
+                font-size: 13px;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            i {
+                position: absolute;
+                left: 28px;
+                font-size: 18px;
+                opacity: 0;
+            }
+            svg {
+                width: 20px;
+                opacity: 0;
+            }
+            .other-icon {
+                fill: $light;
+            }
+
+            .card-active {
+                .number, h5, i {
+                color: $primary !important;
+                }
+            }
+        }
+    }
+}
+
+//tablet 
+@media (max-width: 768px) {
+    #tracklist-section {
+    
+        background: transparent;
+        background-image: linear-gradient(transparent, $darker);
+        width: 100%;
+        
+        .container {
+            min-height: 100vh;
+            
+            svg {
+                cursor: pointer;
+                width: 25px;
+                fill: $mid-light;
+                transition: transform 0.2s ease-in-out;
+    
+                    &:hover{
+                    fill: $light;
+                    transform: scale(1.1);
+                    }
+                &.play-btn {
+                    fill: $primary;
+                    width: 50px;
+                }
+    
+            }
+
+                #tracklist-cards {
+
+                    margin-top: 2rem;
+             
+                     .track-card {
+                         padding-inline: 0;
+                         padding-block: 0.5rem;
+                         border-radius: 6px;
+                         position: relative;
+             
+                         &:hover {
+                             background-color: transparent
+                         } 
+                         &:active{
+                            background-color: $darker;
+                         }
+                     }
+                     svg, i, span {
+                         display: none;
+                     }
+                     a:hover {
+                        text-decoration: none;
+                     }
+
+                 }
+             
+            
+        }
+    }
+}
+            
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff78;
+    border-radius: 100vh;
+    &:hover {
+        background-color: $light;
+    }
+}
+
