@@ -1,0 +1,60 @@
+footer {
+    height: 90px !important;
+    position: fixed !important;
+    bottom: 0px;
+    width: 100%;
+  }
+  
+  .fixedSize {
+    height: 130px !important;
+  }
+  
+  .imageUser {
+    width: 30px;
+  }
+  
+  .userName {
+    font-size: 12px;
+  }
+  
+  .yellow-back {
+    background-color: #D0B44A;
+  }
+  
+  .album-cover {
+    width: 25%;
+  }
+  
+  .album-title {
+    font-size: 5rem;
+  }
+  
+  .imgPlayer {
+    width: 75px;
+  }
+  
+  .barWhite {
+    height: 4px !important;
+    border-radius: 50px;
+  }
+  
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  
+  
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
