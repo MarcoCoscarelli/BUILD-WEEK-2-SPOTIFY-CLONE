@@ -19,6 +19,7 @@ footer {
   
 #imageBackground {
   background-image: url(../imgs/main/image-1.jpg);
+  /* background-image: url(' "https://api.deezer.com/artist/412/image"'); */
   background-repeat: no-repeat;
   width: fit-content;
 }
