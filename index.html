@@ -8,10 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="icon" href="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" type="image/png" />
 </head>
 
-<body class="bg-dark text-white overflow-hidden">
+<body class="gradient-bg text-white overflow-hidden">
     <!-- SUDDIVISIONE COLONNE-->
     <div class="container-fluid m-0 p-0">
 
@@ -19,12 +21,12 @@
             <!-- SX -->
             <div class="d-flex">
                 <!-- PRIMA COLONNA-->
-                <div class="col-2 bg-black text-secondary d-flex flex-column vh-100 ps-4 pt-3">
+                <nav class="col-2 bg-black text-secondary d-flex flex-column vh-100 ps-4 pt-3">
                     <p class="bi bi-three-dots"></p>
                     <p class="bi bi-house-fill">&nbsp Home</p>
                     <p class="bi bi-search">&nbsp Cerca</p>
                     <p class="bi bi-music-note-list mb-4">&nbsp La tua libreria</p>
-                    <p class="bi bi-plus-square-fill" id="create-playlist">
+                    <p class="bi bi-plus-square-fill" role="button" onclick="createPlaylist()">
                         &nbsp Crea playlist
                     </p>
                     <p class="bi bi-heart-fill">&nbsp Brani che ti piacciono</p>
@@ -46,12 +48,13 @@
                             <li class="pt-2">that fucking mood :]</li>
                         </ul>
                     </div>
-                </div>
+                </nav>
                 <!-- SEZIONE CENTRALE -->
 
                 <!-- SECONDA COLONNA -->
-                <main class="col-10 bg-dark mb-4 ms-1 p-3 vh-100 overflow-auto" id="test_02">
-                    <!-- INTETAZIONE PARTE CENTRALE-->
+                <main class="col-10 gradient-bg mb-4 ms-1 p-3 vh-100 overflow-auto" id="test_02">
+
+                    <!-- INTESTAZIONE PARTE CENTRALE-->
                     <div class="container-fluid m-0">
                         <div class="row d-flex justify-content-between">
                             <div class="col-6">
@@ -89,11 +92,14 @@
                         </div>
                     </div>
 
-                    <div class="bg-black d-flex align-items-start mb-3 p-3">
+                    <div class="gradient-bg-ads d-flex align-items-center mb-3 p-3">
                         <img src="https://via.placeholder.com/150" alt="album cover" />
-                        <div class="ms-3">
+                        <div class="ms-3 container-fluid">
+                            <div class="d-flex justify-content-between">
                             <p class="fw-bold">ALBUM</p>
-                            <h1>VIOLA (feat. Salmo)</h1>
+                            <p class="text-secondary">NASCONDI ANNUNCI</p>
+                        </div>
+                            <h1 class="display-2 fw-bold">VIOLA (feat. Salmo)</h1>
                             <p>Fedez, Salmo</p>
                             <p>Ascolta il nuovo singolo di Fedez e Salmo</p>
                             <button class="btn btn-success rounded-5 mx-2 px-4 text-black fw-bold">
@@ -102,18 +108,19 @@
                             <button class="btn btn-outline-light rounded-5 mx-2 px-4 fw-bold">
                                 Salva
                             </button>
-                            <button class="btn rounded-5 mx-2 px-4 active">
+                            <button class="btn rounded-5 mx-2 px-2 border-0 active">
                                 <i class="bi bi-three-dots"></i>
                             </button>
                         </div>
                     </div>
+
                     <!-- PLAYLIST -->
                     <div class="mb-4">
-                        <h2>Buonasera</h2>
+                       <h2>Buonasera</h2>
                         <div class="row row-cols-1 row-cols-md-3 g-4">
                             <div>
-                                <div class="d-flex ">
-                                    <div class="d-flex flex-wrap image-grid playlist-container me-2">
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
                                         <img src="../assets/imgs/main/image-1.jpg" alt="playlist cover"
                                             class="image-item" />
                                         <img src="../assets/imgs/main/image-11.jpg" alt="playlist cover"
@@ -123,12 +130,12 @@
                                         <img src="../assets/imgs/search/image-46.jpeg" alt="playlist cover"
                                             class="image-item" />
                                     </div>
-                                    <p class="align-self-center mb-0">Dark Pop</p>
+                                    <p class="align-self-center mb-0 flex-grow-1">Dark Pop</p>
                                 </div>
                             </div>
                             <div>
-                                <div class="d-flex ">
-                                    <div class="d-flex flex-wrap image-grid playlist-container me-2">
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
                                         <img src="../assets/imgs/main/image-2.jpg" alt="playlist cover"
                                             class="image-item" />
                                         <img src="../assets/imgs/main/image-10.jpg" alt="playlist cover"
@@ -142,8 +149,8 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="d-flex ">
-                                    <div class="d-flex flex-wrap image-grid playlist-container me-2">
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
                                         <img src="../assets/imgs/main/image-3.jpg" alt="playlist cover"
                                             class="image-item" />
                                         <img src="../assets/imgs/main/image-13.jpg" alt="playlist cover"
@@ -157,15 +164,18 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="d-flex playlist-container">
+                                <div class="d-flex  box-hero">
+                                    <div class="playlist-container me-3">
                                     <img src="../assets/imgs/search/image-13.jpeg" alt="playlist cover"
-                                        class="me-2 full-image" />
+                                        class="me-3 full-image " />
+                                    </div>
                                     <p class="align-self-center mb-0">Summer Hit's</p>
+                                
                                 </div>
                             </div>
                             <div>
-                                <div class="d-flex ">
-                                    <div class="d-flex flex-wrap image-grid playlist-container me-2">
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
                                         <img src="../assets/imgs/main/image-4.jpg" alt="playlist cover"
                                             class="image-item" />
                                         <img src="../assets/imgs/main/image-7.jpg" alt="playlist cover"
@@ -179,10 +189,12 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="d-flex playlist-container">
+                                <div class="d-flex box-hero">
+                                    <div class="playlist-container me-3">
                                     <img src="../assets/imgs/search/image-18.jpg" alt="playlist cover"
-                                        class="me-2 full-image" />
-                                    <p class="align-self-center mb-0">Sleep</p>
+                                        class="me-3 full-image" />
+                                    </div>
+                                    <p class="align-self-center mb-0">Sleep Songs</p>
                                 </div>
                             </div>
                         </div>
@@ -190,10 +202,13 @@
 
                     <!-- Altro di ciò che ti piace -->
                     <section class="mb-5">
+                        <div class="d-flex justify-content-between">
                         <h2>Altro di ciò che ti piace</h2>
+                        <p class="text-secondary">VISUALIZZA TUTTO</p>
+                    </div>
                         <div class="row row-cols-2 row-cols-md-5 ">
                             <div class="mb-3">
-                                <div class="card bg-dark text-white">
+                                <div class="card  text-white">
                                     <img src="../assets/imgs/main/image-8.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -203,7 +218,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white ">
+                                <div class="card  text-white ">
                                     <img src="../assets/imgs/main/image-9.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -213,7 +228,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white ">
+                                <div class="card  text-white ">
                                     <img src="../assets/imgs/main/image-13.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -223,7 +238,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white ">
+                                <div class="card  text-white ">
                                     <img src="../assets/imgs/main/image-17.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -233,7 +248,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white ">
+                                <div class="card  text-white ">
                                     <img src="../assets/imgs/main/image-18.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -247,10 +262,13 @@
 
                     <!-- Hit del momento -->
                     <section class="mb-5">
-                        <h2>Hit del momento</h2>
+                        <div class="d-flex justify-content-between">
+                            <h2>Hit del momento</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
                         <div class="row row-cols-2 row-cols-md-5 g-4">
                             <div class="mb-3">
-                                <div class="card bg-dark text-white">
+                                <div class="card  text-white">
                                     <img src="../assets/imgs/search/image-3.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -260,7 +278,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white">
+                                <div class="card  text-white">
                                     <img src="../assets/imgs/search/image-4.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -270,7 +288,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white">
+                                <div class="card  text-white">
                                     <img src="../assets/imgs/search/image-5.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -280,7 +298,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white">
+                                <div class="card  text-white">
                                     <img src="../assets/imgs/search/image-6.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -290,7 +308,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="card bg-dark text-white">
+                                <div class="card  text-white">
                                     <img src="../assets/imgs/search/image-7.jpg" alt="music cover"
                                         class="card-img-top rounded-4 p-2" />
                                     <div class="card-body">
@@ -300,126 +318,132 @@
                                 </div>
                             </div>
                         </div>
-                        </section>
+                    </section>
 
-                         <!-- Preferiti -->
-                        <section class="mb-5">
-                            <h2>I preferiti </h2>
-                            <div class="row row-cols-2 row-cols-md-5 g-4">
-                                <div class="mb-3">
-                                    <div class="card bg-dark text-white">
-                                        <img src="../assets/imgs/search/image-8.jpg" alt="music cover"
-                                            class="card-img-top rounded-4 p-2" />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Gym Songs</h5>
-                                            <p class="text-secondary">Warm up - Beast mode</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="card bg-dark text-white">
-                                        <img src="../assets/imgs/search/image-9.jpg" alt="music cover"
-                                            class="card-img-top rounded-4 p-2" />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Nija</h5>
-                                            <p class="text-secondary">Songs from Nija</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="card bg-dark text-white">
-                                        <img src="../assets/imgs/search/image-10.jpg" alt="music cover"
-                                            class="card-img-top rounded-4 p-2" />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Thinking Songs</h5>
-                                            <p class="text-secondary">Brani per lo stimolo del pensiero</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="card bg-dark text-white">
-                                        <img src="../assets/imgs/search/image-11.jpg" alt="music cover"
-                                            class="card-img-top rounded-4 p-2" />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Travels Songs</h5>
-                                            <p class="text-secondary">Songs to sing in the car</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div class="card bg-dark text-white">
-                                        <img src="../assets/imgs/search/image-12.jpg" alt="music cover"
-                                            class="card-img-top rounded-4 p-2" />
-                                        <div class="card-body">
-                                            <h5 class="card-title">All Out</h5>
-                                            <p class="text-secondary">Suggestive songs</p>
-                                        </div>
+                    <!-- Preferiti -->
+                    <section class="mb-5">
+                        <div class="d-flex justify-content-between">
+                            <h2>Preferiti</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
+                        <div class="row row-cols-2 row-cols-md-5 g-4">
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-8.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gym Songs</h5>
+                                        <p class="text-secondary">Warm up - Beast mode</p>
                                     </div>
                                 </div>
                             </div>
-                            </section>
-
-                            <!-- Culture hype -->
-                            <section class="mb-5">
-                                <h2>Culture hype</h2>
-                                <div class="row row-cols-2 row-cols-md-5 g-4">
-                                    <div class="mb-3">
-                                        <div class="card bg-dark text-white">
-                                            <img src="../assets/imgs/search/image-20.jpg" alt="music cover"
-                                                class="card-img-top rounded-4 p-2" />
-                                            <div class="card-body">
-                                                <h5 class="card-title">Jazz Style</h5>
-                                                <p class="text-secondary">Jazz appreciation changes</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="card bg-dark text-white">
-                                            <img src="../assets/imgs/search/image-22.jpg" alt="music cover"
-                                                class="card-img-top rounded-4 p-2" />
-                                            <div class="card-body">
-                                                <h5 class="card-title">Indigo</h5>
-                                                <p class="text-secondary">Indigo songs</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="card bg-dark text-white">
-                                            <img src="../assets/imgs/search/image-23.jpg" alt="music cover"
-                                                class="card-img-top rounded-4 p-2" />
-                                            <div class="card-body">
-                                                <h5 class="card-title">Deep Focus</h5>
-                                                <p class="text-secondary">Enchanced with deep focus</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="card bg-dark text-white">
-                                            <img src="../assets/imgs/search/image-24.jpg" alt="music cover"
-                                                class="card-img-top rounded-4 p-2" />
-                                            <div class="card-body">
-                                                <h5 class="card-title">Peaceful Guitar</h5>
-                                                <p class="text-secondary">Relax whit guitar songs</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="card bg-dark text-white">
-                                            <img src="../assets/imgs/search/image-26.jpg" alt="music cover"
-                                                class="card-img-top rounded-4 p-2" />
-                                            <div class="card-body">
-                                                <h5 class="card-title">Friday Vibes</h5>
-                                                <p class="text-secondary">Best vibes on pre-weekend</p>
-                                            </div>
-                                        </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-9.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nija</h5>
+                                        <p class="text-secondary">Songs from Nija</p>
                                     </div>
                                 </div>
-                                </section>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-10.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Thinking Songs</h5>
+                                        <p class="text-secondary">Brani per lo stimolo del pensiero</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-11.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Travels Songs</h5>
+                                        <p class="text-secondary">Songs to sing in the car</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-12.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">All Out</h5>
+                                        <p class="text-secondary">Suggestive songs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Culture hype -->
+                    <section class="mb-5">
+                        <div class="d-flex justify-content-between">
+                            <h2>Hype culture</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
+                        <div class="row row-cols-2 row-cols-md-5 g-4">
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-20.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jazz Style</h5>
+                                        <p class="text-secondary">Jazz appreciation changes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-22.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Indigo</h5>
+                                        <p class="text-secondary">Indigo songs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-23.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Deep Focus</h5>
+                                        <p class="text-secondary">Enchanced with deep focus</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-24.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Peaceful Guitar</h5>
+                                        <p class="text-secondary">Relax whit guitar songs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-26.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Friday Vibes</h5>
+                                        <p class="text-secondary">Best vibes on pre-weekend</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </main>
 
                 <!-- WORK IN PROGRESS -->
                 <!-- TERZA COLONNA   -->
-                <div class="col-2 bg-black d-flex flex-column vh-100 ps-4 pe-4 pt-3 d-none" id="test_01"> 
+                <div class="col-2 bg-black d-flex flex-column vh-100 ps-4 pe-4 pt-3 d-none" id="test_01">
 
                     <div class="d-flex justify-content-between align-items-center pb-5">
 
@@ -436,13 +460,14 @@
                     <div class="container-fluid"> <!-- CONTENUTO FRIEND ACTIVITIES -->
                         <div class="row d-flex align-items-start" id="cards-friend">
                             <div class="col-3"> <!-- FOTO PROFILO -->
-                                <img src="assets/imgs/main/image-12.jpg" class="img-fluid rounded-pill img-cards-friend" />
+                                <img src="assets/imgs/main/image-12.jpg"
+                                    class="img-fluid rounded-pill img-cards-friend" />
                             </div>
                             <div class="col-6 lh-sm"> <!-- BRANO ASCOLTATO -->
                                 <ul class="navbar-nav">
-                                <li class="fw-bold pb-2 mt-1">Charlie Hookman</li>
-                                <li>in camera &middot Yumi Zouma</li>
-                                <li class="pt-2"><i class="bi bi-disc"></i> EP |||</li>
+                                    <li class="fw-bold pb-2 mt-1">Charlie Hookman</li>
+                                    <li>in camera &middot Yumi Zouma</li>
+                                    <li class="pt-2"><i class="bi bi-disc"></i> EP |||</li>
                                 </ul>
                             </div>
                             <div class="col-3"> <!-- QUANTO TEMPO FA' -->
@@ -455,13 +480,14 @@
                     <div class="container-fluid mt-5"> <!-- CONTENUTO FRIEND ACTIVITIES -->
                         <div class="row d-flex align-items-start" id="cards-friend">
                             <div class="col-1"> <!-- FOTO PROFILO -->
-                                <img src="assets/imgs/main/image-9.jpg" class="img-fluid rounded-pill img-cards-friend" />
+                                <img src="assets/imgs/main/image-9.jpg"
+                                    class="img-fluid rounded-pill img-cards-friend" />
                             </div>
                             <div class="col-8 lh-sm justify-content-start"> <!-- BRANO ASCOLTATO -->
                                 <ul class="navbar-nav">
-                                <li class="fw-bold pb-2 mt-1">lightdark02</li>
-                                <li>Aimed to Kill &middot Jade LeMac</li>
-                                <li class="pt-2"><i class="bi bi-disc"></i>Aimed to Kill</li>
+                                    <li class="fw-bold pb-2 mt-1">lightdark02</li>
+                                    <li>Aimed to Kill &middot Jade LeMac</li>
+                                    <li class="pt-2"><i class="bi bi-disc"></i>Aimed to Kill</li>
                                 </ul>
                             </div>
                             <div class="col-3"> <!-- QUANTO TEMPO FA' -->
@@ -474,13 +500,14 @@
                     <div class="container-fluid mt-5"> <!-- CONTENUTO FRIEND ACTIVITIES -->
                         <div class="row d-flex align-items-start" id="cards-friend">
                             <div class="col-3"> <!-- FOTO PROFILO -->
-                                <img src="assets/imgs/main/image-19.jpg" class="img-fluid rounded-pill img-cards-friend" />
+                                <img src="assets/imgs/main/image-19.jpg"
+                                    class="img-fluid rounded-pill img-cards-friend" />
                             </div>
                             <div class="col-6 lh-sm"> <!-- BRANO ASCOLTATO -->
                                 <ul class="navbar-nav">
-                                <li class="fw-bold pb-2 mt-1">Valeria Traverso</li>
-                                <li>New King &middot Sleeping Wolf</li>
-                                <li class="pt-2"><i class="bi bi-music-note-beamed"></i> Twint Badass mood</li>
+                                    <li class="fw-bold pb-2 mt-1">Valeria Traverso</li>
+                                    <li>New King &middot Sleeping Wolf</li>
+                                    <li class="pt-2"><i class="bi bi-music-note-beamed"></i> Twint Badass mood</li>
                                 </ul>
                             </div>
                             <div class="col-3"> <!-- QUANTO TEMPO FA' -->
@@ -494,7 +521,7 @@
             </div>
         </div>
         <!-- FOOTER -->
-        <footer class="bg-dark d-flex align-items-center p-4 border-top">
+        <footer class=" d-flex align-items-center p-4 border-top border-dark">
             <div class="container-fluid m-0">
                 <div class="row">
                     <div class="col-3 d-flex align-items-center gap-2">
