@@ -14,8 +14,7 @@ const infoArtist = function () {
     })
     .then((dataArtist) => {
       console.log(dataArtist);
-      populateTitle(dataArtist)
-
+      populateTitle(dataArtist);
 
       //   imageBackground.innerHTML = `
       //    <div class="d-flex justify-content-between align-items-center">
@@ -70,11 +69,10 @@ const infoArtist = function () {
 };
 
 const populateTitle = function (dataArtist) {
-    const imageBackground = document.getElementById("imageBackground");
-    imageBackground.style.backgroundImage = `url(${dataArtist.picture_xl})`;
-      const nameArtist = document.getElementById("nameArtist");
-      nameArtist.innerText= dataArtist.name
-}
+  const imageBackground = document.getElementById("imageBackground");
+  imageBackground.style.backgroundImage = `url(${dataArtist.picture_xl})`;
+  const nameArtist = document.getElementById("nameArtist");
+  nameArtist.innerText = dataArtist.name;
+};
 
 infoArtist();
-
