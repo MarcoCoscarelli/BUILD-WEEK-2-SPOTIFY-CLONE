@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="assets/css/circular-font.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
-    <link rel="icon" href="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" type="image/png" />
+    <link rel="icon" href="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png"
+        type="image/png" />
+<!-- FONT AWESOME -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 </head>
 
 <body class="gradient-bg text-white overflow-hidden">
@@ -96,9 +99,9 @@
                         <img src="https://via.placeholder.com/150" alt="album cover" />
                         <div class="ms-3 container-fluid">
                             <div class="d-flex justify-content-between">
-                            <p class="fw-bold">ALBUM</p>
-                            <p class="text-secondary">NASCONDI ANNUNCI</p>
-                        </div>
+                                <p class="fw-bold">ALBUM</p>
+                                <p class="text-secondary">NASCONDI ANNUNCI</p>
+                            </div>
                             <h1 class="display-2 fw-bold">VIOLA (feat. Salmo)</h1>
                             <p>Fedez, Salmo</p>
                             <p>Ascolta il nuovo singolo di Fedez e Salmo</p>
@@ -116,7 +119,7 @@
 
                     <!-- PLAYLIST -->
                     <div class="mb-4">
-                       <h2>Buonasera</h2>
+                        <h2>Buonasera</h2>
                         <div class="row row-cols-1 row-cols-md-3 g-4">
                             <div>
                                 <div class="d-flex box-hero">
@@ -166,11 +169,11 @@
                             <div>
                                 <div class="d-flex  box-hero">
                                     <div class="playlist-container me-3">
-                                    <img src="../assets/imgs/search/image-13.jpeg" alt="playlist cover"
-                                        class="me-3 full-image " />
+                                        <img src="../assets/imgs/search/image-13.jpeg" alt="playlist cover"
+                                            class="me-3 full-image " />
                                     </div>
                                     <p class="align-self-center mb-0">Summer Hit's</p>
-                                
+
                                 </div>
                             </div>
                             <div>
@@ -191,8 +194,8 @@
                             <div>
                                 <div class="d-flex box-hero">
                                     <div class="playlist-container me-3">
-                                    <img src="../assets/imgs/search/image-18.jpg" alt="playlist cover"
-                                        class="me-3 full-image" />
+                                        <img src="../assets/imgs/search/image-18.jpg" alt="playlist cover"
+                                            class="me-3 full-image" />
                                     </div>
                                     <p class="align-self-center mb-0">Sleep Songs</p>
                                 </div>
@@ -203,9 +206,9 @@
                     <!-- Altro di ciò che ti piace -->
                     <section class="mb-5">
                         <div class="d-flex justify-content-between">
-                        <h2>Altro di ciò che ti piace</h2>
-                        <p class="text-secondary">VISUALIZZA TUTTO</p>
-                    </div>
+                            <h2>Altro di ciò che ti piace</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
                         <div class="row row-cols-2 row-cols-md-5 ">
                             <div class="mb-3">
                                 <div class="card  text-white">
@@ -523,7 +526,10 @@
         <!-- FOOTER -->
         <footer class=" d-flex align-items-center p-4 border-top border-dark">
             <div class="container-fluid m-0">
+
                 <div class="row">
+
+                    <!-- PLAYER SX -->
                     <div class="col-3 d-flex align-items-center gap-2">
                         <div class="imgPlayer me-3">
                             <img src="assets/imgs/search/image-13.jpeg" class="img-fluid" />
@@ -536,24 +542,40 @@
                             <i role="button" class="bi bi-heart"></i>
                         </div>
                     </div>
-                    <div class="col-6 d-flex justify-content-center align-items-center">
-                        <div class="w-100 d-flex justify-content-center gap-4 fs-4 align-items-center">
-                            <i role="button" class="bi bi-shuffle"></i>
-                            <i role="button" class="bi bi-skip-backward-fill"></i>
-                            <i role="button" class="bi bi-play-circle-fill fs-2"></i>
-                            <i role="button" class="bi bi-skip-forward-fill"></i>
-                            <i role="button" class="bi bi-repeat"></i>
+
+                    <!-- PLAYER CENTRALE -->
+                    <div class="col-6 d-flex flex-column lh-1 pt-3">
+
+                        <div class="buttons d-flex justify-content-center align-items-center">
+                            <div class="prev-track pe-4" onclick="prevTrack()"><i role="button"
+                                    class="bi bi-skip-backward-fill"></i></div>
+                            <div class="playpause-track pe-4" onclick="playpauseTrack()"><i role="button" class="bi bi-play-circle-fill fs-2"></i></div>
+                            <div class="next-track" onclick="nextTrack()"><i role="button"
+                                    class="bi bi-skip-forward-fill"></i></div>
+                        </div>
+
+                        <div class="slider_container d-flex">
+                            <div class="current-time pe-3">00:00</div>
+                            <input type="range" min="1" max="100" value="0" class="seek_slider mt-2" onchange="seekTo()">
+                            <div class="total-duration ps-3">00:00</div>
                         </div>
                     </div>
+
+
                     <div class="col-3 d-flex align-items-center justify-content-end gap-2">
                         <div class="d-flex align-items-center gap-3 fs-5 me-1">
                             <i role="button" class="bi bi-mic"></i>
                             <i role="button" class="bi bi-list"></i>
                             <i role="button" class="bi bi-speaker"></i>
                             <i role="button" class="bi bi-volume-up"></i>
-                        </div>
-                        <div class="bg-light w-25 barWhite me-1"></div>
-                        <div>
+                
+                            <div class="slider_container">
+                                <i class="fa fa-volume-down pe-3"></i>
+                                <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                                <i class="fa fa-volume-up ps-3"></i>
+                              </div>
+
+
                             <i class="bi bi-arrows-angle-expand"></i>
                         </div>
                     </div>

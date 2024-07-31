@@ -146,3 +146,52 @@
     width: 80%;
   }
 
+/* ------------------------------------------------------------- CSS PLAYER STYLING ------------------------------------------------  */
+.playpause-track, .prev-track, .next-track {
+  opacity: 0.8;
+
+  /* Smoothly transition the opacity */
+  transition: opacity .2s;
+}
+
+.playpause-track:hover, .prev-track:hover, .next-track:hover, .seek_slider:hover, .volume_slider:hover {
+  opacity: 1.0;
+}
+
+/* styling della linea */
+.seek_slider, .volume_slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: rgb(224, 12, 12);
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* styling del punto bianco riproduzione ( thumb ) */
+.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.seek_slider {  /* GRANDEZZA PLAYER LINEA */
+  width: 60%;
+}
+
+.volume_slider { /* GRANDEZZA VOLUME LINEA */
+  width: 60%;
+}
