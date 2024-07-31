@@ -2,6 +2,35 @@
   font-family: circular, sans-serif;
 }
 
+/* STILE PER LA VISUALIZZAZIONE DI MODIFICA/ELIMINA PLAYLIST */
+.context-menu {
+  position: absolute;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  z-index: 1000;
+  width: 150px;
+}
+
+.context-menu div {
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.context-menu div:hover {
+  background-color: #555;
+}
+
+/* MODALI */
+.modal-content {
+  border: none;
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
+
 /* SCROLL BAR */
 ::-webkit-scrollbar {
     width: 10px;
@@ -67,8 +96,6 @@
   
 }
 
-
-
 .full-image {
   width: 100%; 
   height: 100%; 
@@ -97,9 +124,6 @@
     font-size: 12px;
   }
   
-  .yellow-back {
-    background-color: #D0B44A;
-  }
   
   .album-cover {
     width: 25%;
