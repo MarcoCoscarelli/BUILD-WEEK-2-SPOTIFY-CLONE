@@ -1,13 +1,631 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home Page Spotify Project</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="icon" href="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png"
+        type="image/png" />
+</head>
+
+<body class="gradient-bg text-white overflow-hidden">
+    <!-- SUDDIVISIONE COLONNE-->
+    <div class="container-fluid m-0 p-0">
+
+        <div class="row">
+            <!-- SX -->
+            <div class="d-flex">
+                <!-- PRIMA COLONNA-->
+                <nav class="col-2 bg-black text-secondary d-flex flex-column vh-100 ps-4 pt-3">
+                    <p class="bi bi-three-dots"></p>
+                    <p class="bi bi-house-fill">&nbsp Home</p>
+                    <p class="bi bi-search">&nbsp Cerca</p>
+                    <p class="bi bi-music-note-list mb-4">&nbsp La tua libreria</p>
+                    <p class="bi bi-plus-square-fill" role="button" onclick="createPlaylist()">
+                        <!-- Crea nuova playlist -->
+                        &nbsp Crea playlist
+                    </p>
+                    <p class="bi bi-heart-fill">&nbsp Brani che ti piacciono</p>
+                    <p class="bi bi-bookmark-fill">&nbsp I tuoi episodi</p>
+                    <hr />
+                    <div class="overflow-auto">
+                        <!-- SEZIONE PLAYLIST-->
+
+                        <ul class="navbar-nav" id="playlist-index">
+                            <!-- PLAYLIST AGGIUNTE DINAMICAMENTE -->
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- Modale per creare una nuova playlist -->
+                <div class="modal fade" id="createPlaylistModal" tabindex="-1"
+                    aria-labelledby="createPlaylistModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="createPlaylistModalLabel">Crea nuova playlist</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="newPlaylistName"
+                                    placeholder="ES: Summer 2K21">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                <button type="button" class="btn btn-success" onclick="saveNewPlaylist()">Salva</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modale per modificare una playlist esistente -->
+                <div class="modal fade" id="editPlaylistModal" tabindex="-1" aria-labelledby="editPlaylistModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editPlaylistModalLabel">Modifica playlist</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="editPlaylistName">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                <button type="button" class="btn btn-success"
+                                    onclick="saveEditedPlaylist()">Salva</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modale per confermare l'eliminazione di una playlist -->
+                <div class="modal fade" id="deletePlaylistModal" tabindex="-1"
+                    aria-labelledby="deletePlaylistModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark text-white">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deletePlaylistModalLabel">Elimina playlist</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Sei sicuro di voler eliminare questa playlist?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                <button type="button" class="btn btn-danger"
+                                    onclick="confirmDeletePlaylist()">Elimina</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEZIONE CENTRALE -->
+
+                <!-- SECONDA COLONNA -->
+                <main class="col-10 gradient-bg mb-4 ms-1 p-3 vh-100 overflow-auto" id="test_02">
+
+                    <!-- INTESTAZIONE PARTE CENTRALE-->
+                    <div class="container-fluid m-0">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-6">
+                                <button class="rounded-circle mb-4 me-3" id="button-before">
+                                    <i class="bi bi-caret-left"></i>
+                                </button>
+                                <button class="rounded-circle mb-4" id="button-after">
+                                    <i class="bi bi-caret-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-6 d-flex justify-content-end">
+                                <div class="dropdown">
+                                    <button
+                                        class="btn btn-secondary dropdown-toggle d-flex align-items-center rounded-pill ps-0 pe-2 py-0"
+                                        type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <div class="imageUser me-1">
+                                            <img src="assets/imgs/main/image-1.jpg" class="img-fluid rounded-pill" />
+                                        </div>
+                                        <span class="userName me-1 pe-2 fw-bold">Campion Luca</span>
+                                    </button>
+                                    <ul class="dropdown-menu me-1" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                                        <li><a class="dropdown-item" href="#">Log Out</a></li>
+                                        <hr />
+                                        <li>
+                                            <a class="dropdown-item" role="button" onclick="modalNostrum()">Attività
+                                                dei tuoi amici</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gradient-bg-ads d-flex align-items-center mb-3 p-3">
+                        <img src="https://via.placeholder.com/150" alt="album cover" />
+                        <div class="ms-3 container-fluid">
+                            <div class="d-flex justify-content-between">
+                                <p class="fw-bold">ALBUM</p>
+                                <p class="text-secondary">NASCONDI ANNUNCI</p>
+                            </div>
+                            <h1 class="display-2 fw-bold">VIOLA (feat. Salmo)</h1>
+                            <p>Fedez, Salmo</p>
+                            <p>Ascolta il nuovo singolo di Fedez e Salmo</p>
+                            <button class="btn btn-success rounded-5 mx-2 px-4 text-black fw-bold">
+                                Play
+                            </button>
+                            <button class="btn btn-outline-light rounded-5 mx-2 px-4 fw-bold">
+                                Salva
+                            </button>
+                            <button class="btn rounded-5 mx-2 px-2 border-0 active">
+                                <i class="bi bi-three-dots"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PLAYLIST -->
+                    <div class="mb-4">
+                        <h2>Buonasera</h2>
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <div>
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
+                                        <img src="../assets/imgs/main/image-1.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-11.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-12.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/search/image-46.jpeg" alt="playlist cover"
+                                            class="image-item" />
+                                    </div>
+                                    <p class="align-self-center mb-0 flex-grow-1">Dark Pop</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
+                                        <img src="../assets/imgs/main/image-2.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-10.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-5.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-6.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                    </div>
+                                    <p class="align-self-center mb-0">Chill songs</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
+                                        <img src="../assets/imgs/main/image-3.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-13.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-14.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/search/image-1.jpeg" alt="playlist cover"
+                                            class="image-item" />
+                                    </div>
+                                    <p class="align-self-center mb-0">Saggio Vibes</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex  box-hero">
+                                    <div class="playlist-container me-3">
+                                        <img src="../assets/imgs/search/image-13.jpeg" alt="playlist cover"
+                                            class="me-3 full-image " />
+                                    </div>
+                                    <p class="align-self-center mb-0">Summer Hit's</p>
+
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex box-hero">
+                                    <div class="d-flex flex-wrap image-grid playlist-container me-3">
+                                        <img src="../assets/imgs/main/image-4.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-7.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/main/image-8.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                        <img src="../assets/imgs/search/image-19.jpg" alt="playlist cover"
+                                            class="image-item" />
+                                    </div>
+                                    <p class="align-self-center mb-0">New Age</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex box-hero">
+                                    <div class="playlist-container me-3">
+                                        <img src="../assets/imgs/search/image-18.jpg" alt="playlist cover"
+                                            class="me-3 full-image" />
+                                    </div>
+                                    <p class="align-self-center mb-0">Sleep Songs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Altro di ciò che ti piace -->
+                    <section class="mb-5">
+                        <div class="d-flex justify-content-between">
+                            <h2>Altro di ciò che ti piace</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
+                        <div class="row row-cols-2 row-cols-md-5 ">
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/main/image-8.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sangue Giovane</h5>
+                                        <p class="text-secondary">La playlist dei giovini</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white ">
+                                    <img src="../assets/imgs/main/image-9.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Playlist da Doccia</h5>
+                                        <p class="text-secondary">Brani perfetti per la doccia</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white ">
+                                    <img src="../assets/imgs/main/image-13.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Pulizie di Casa</h5>
+                                        <p class="text-secondary">Brani perfetti per pulizie di casa</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white ">
+                                    <img src="../assets/imgs/main/image-17.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Black Pop</h5>
+                                        <p class="text-secondary">American musics</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white ">
+                                    <img src="../assets/imgs/main/image-18.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Estate 2022</h5>
+                                        <p class="text-secondary">Migliori canzone dell'Estate</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Hit del momento -->
+                    <section class="mb-5">
+                        <div class="d-flex justify-content-between">
+                            <h2>Hit del momento</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
+                        <div class="row row-cols-2 row-cols-md-5 g-4">
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-3.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Pollen</h5>
+                                        <p class="text-secondary">I brani di Pollen</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-4.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mint</h5>
+                                        <p class="text-secondary">Brani di Mint</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-5.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Musiche latine</h5>
+                                        <p class="text-secondary">Hit latine</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-6.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Are & Be</h5>
+                                        <p class="text-secondary">American musics</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-7.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">American Rock</h5>
+                                        <p class="text-secondary">Migliori americane rock</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Preferiti -->
+                    <section class="mb-5">
+                        <div class="d-flex justify-content-between">
+                            <h2>Preferiti</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
+                        <div class="row row-cols-2 row-cols-md-5 g-4">
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-8.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Gym Songs</h5>
+                                        <p class="text-secondary">Warm up - Beast mode</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-9.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nija</h5>
+                                        <p class="text-secondary">Songs from Nija</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-10.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Thinking Songs</h5>
+                                        <p class="text-secondary">Brani per lo stimolo del pensiero</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-11.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Travels Songs</h5>
+                                        <p class="text-secondary">Songs to sing in the car</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-12.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">All Out</h5>
+                                        <p class="text-secondary">Suggestive songs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Culture hype -->
+                    <section class="mb-5">
+                        <div class="d-flex justify-content-between">
+                            <h2>Hype culture</h2>
+                            <p class="text-secondary">VISUALIZZA TUTTO</p>
+                        </div>
+                        <div class="row row-cols-2 row-cols-md-5 g-4">
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-20.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jazz Style</h5>
+                                        <p class="text-secondary">Jazz appreciation changes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-22.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Indigo</h5>
+                                        <p class="text-secondary">Indigo songs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-23.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Deep Focus</h5>
+                                        <p class="text-secondary">Enchanced with deep focus</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-24.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Peaceful Guitar</h5>
+                                        <p class="text-secondary">Relax whit guitar songs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="card  text-white">
+                                    <img src="../assets/imgs/search/image-26.jpg" alt="music cover"
+                                        class="card-img-top rounded-4 p-2" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Friday Vibes</h5>
+                                        <p class="text-secondary">Best vibes on pre-weekend</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+
+                <!-- WORK IN PROGRESS -->
+                <!-- TERZA COLONNA   -->
+                <div class="col-2 bg-black d-flex flex-column vh-100 ps-4 pe-4 pt-3 d-none" id="test_01">
+
+                    <div class="d-flex justify-content-between align-items-center pb-5">
+
+                        <div class="titolo-friend">
+                            <h4>Attività amici</h4>
+                        </div>
+
+                        <div class="titolo-icone d-flex">
+                            <i class="bi bi-person-add icon-friend-list pe-3"></i>
+                            <i class="bi bi-x icon-friend-list" role="button" onclick="modalNostrum()"></i>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid"> <!-- CONTENUTO FRIEND ACTIVITIES -->
+                        <div class="row d-flex align-items-start" id="cards-friend">
+                            <div class="col-3"> <!-- FOTO PROFILO -->
+                                <img src="assets/imgs/main/image-12.jpg"
+                                    class="img-fluid rounded-pill img-cards-friend" />
+                            </div>
+                            <div class="col-6 lh-sm"> <!-- BRANO ASCOLTATO -->
+                                <ul class="navbar-nav">
+                                    <li class="fw-bold pb-2 mt-1">Charlie Hookman</li>
+                                    <li>in camera &middot Yumi Zouma</li>
+                                    <li class="pt-2"><i class="bi bi-disc"></i> EP |||</li>
+                                </ul>
+                            </div>
+                            <div class="col-3"> <!-- QUANTO TEMPO FA' -->
+                                <p>4 ore</p>
+                            </div>
+                        </div>
+                    </div> <!-- FINE CARDS FRIEND ACTIVITIES -->
+
+
+                    <div class="container-fluid mt-5"> <!-- CONTENUTO FRIEND ACTIVITIES -->
+                        <div class="row d-flex align-items-start" id="cards-friend">
+                            <div class="col-1"> <!-- FOTO PROFILO -->
+                                <img src="assets/imgs/main/image-9.jpg"
+                                    class="img-fluid rounded-pill img-cards-friend" />
+                            </div>
+                            <div class="col-8 lh-sm justify-content-start"> <!-- BRANO ASCOLTATO -->
+                                <ul class="navbar-nav">
+                                    <li class="fw-bold pb-2 mt-1">lightdark02</li>
+                                    <li>Aimed to Kill &middot Jade LeMac</li>
+                                    <li class="pt-2"><i class="bi bi-disc"></i>Aimed to Kill</li>
+                                </ul>
+                            </div>
+                            <div class="col-3"> <!-- QUANTO TEMPO FA' -->
+                                <p>8 ore</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="container-fluid mt-5"> <!-- CONTENUTO FRIEND ACTIVITIES -->
+                        <div class="row d-flex align-items-start" id="cards-friend">
+                            <div class="col-3"> <!-- FOTO PROFILO -->
+                                <img src="assets/imgs/main/image-19.jpg"
+                                    class="img-fluid rounded-pill img-cards-friend" />
+                            </div>
+                            <div class="col-6 lh-sm"> <!-- BRANO ASCOLTATO -->
+                                <ul class="navbar-nav">
+                                    <li class="fw-bold pb-2 mt-1">Valeria Traverso</li>
+                                    <li>New King &middot Sleeping Wolf</li>
+                                    <li class="pt-2"><i class="bi bi-music-note-beamed"></i> Twint Badass mood</li>
+                                </ul>
+                            </div>
+                            <div class="col-3"> <!-- QUANTO TEMPO FA' -->
+                                <p>3 giorni</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- FOOTER -->
+        <footer class=" d-flex align-items-center p-4 border-top border-dark">
+            <div class="container-fluid m-0">
+                <div class="row">
+                    <div class="col-3 d-flex align-items-center gap-2">
+                        <div class="imgPlayer me-3">
+                            <img src="assets/imgs/search/image-13.jpeg" class="img-fluid" />
+                        </div>
+                        <div class="d-flex flex-column justify-content-center me-4">
+                            <span class="fw-bold">Fat Funny Friend</span>
+                            <span class="fw-lighter">Matilde Zahn</span>
+                        </div>
+                        <div class="fs-5">
+                            <i role="button" class="bi bi-heart"></i>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex justify-content-center align-items-center">
+                        <div class="w-100 d-flex justify-content-center gap-4 fs-4 align-items-center">
+                            <i role="button" class="bi bi-shuffle"></i>
+                            <i role="button" class="bi bi-skip-backward-fill"></i>
+                            <i role="button" class="bi bi-play-circle-fill fs-2"></i>
+                            <i role="button" class="bi bi-skip-forward-fill"></i>
+                            <i role="button" class="bi bi-repeat"></i>
+                        </div>
+                    </div>
+                    <div class="col-3 d-flex align-items-center justify-content-end gap-2">
+                        <div class="d-flex align-items-center gap-3 fs-5 me-1">
+                            <i role="button" class="bi bi-mic"></i>
+                            <i role="button" class="bi bi-list"></i>
+                            <i role="button" class="bi bi-speaker"></i>
+                            <i role="button" class="bi bi-volume-up"></i>
+                        </div>
+                        <div class="bg-light w-25 barWhite me-1"></div>
+                        <div>
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="assets/JS/index.js"></script>
+        <script src="assets/JS/playlist.js"></script>
+</body>
+
 </html>

@@ -1,66 +1,34 @@
-/*footer {
-  height: 90px !important;
-  position: fixed !important;
-  bottom: 0px;
-  width: 100%;
-}
-
-.fixedSize {
-  height: 130px !important;
-}
-
-.imageUser {
-  width: 30px;
-}
-
-.userName {
-  font-size: 12px;
-}
-
-.yellow-back {
-  background-color: #D0B44A;
-}
-
-.album-cover {
-  width: 25%;
-}
-
-.album-title {
-  font-size: 5rem;
-}
-
-.imgPlayer {
-  width: 75px;
-}
-
-.barWhite {
-  height: 4px !important;
-  border-radius: 50px;
-}
-
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-
-
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}*/
-
 * {
   font-family: circular, sans-serif;
+}
+
+/* STILE PER LA VISUALIZZAZIONE DI MODIFICA/ELIMINA PLAYLIST */
+.context-menu {
+  position: absolute;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  z-index: 1000;
+  width: 150px;
+}
+
+.context-menu div {
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.context-menu div:hover {
+  background-color: #555;
+}
+
+/* MODALI */
+.modal-content {
+  border: none;
+}
+
+.modal-header, .modal-footer {
+  border: none;
 }
 
 /* SCROLL BAR */
@@ -128,8 +96,6 @@
   
 }
 
-
-
 .full-image {
   width: 100%; 
   height: 100%; 
@@ -158,9 +124,6 @@
     font-size: 12px;
   }
   
-  .yellow-back {
-    background-color: #D0B44A;
-  }
   
   .album-cover {
     width: 25%;
@@ -206,56 +169,4 @@
   .img-cards-friend {
     width: 80%;
   }
-
-/* ------------------------------------------------------------- CSS PLAYER STYLING ------------------------------------------------  */
-.playpause-track, .prev-track, .next-track {
-  opacity: 0.8;
-
-  /* Smoothly transition the opacity */
-  transition: opacity .2s;
-}
-
-.playpause-track:hover, .prev-track:hover, .next-track:hover, .seek_slider:hover, .volume_slider:hover {
-  opacity: 1.0;
-}
-
-/* styling della linea */
-.seek_slider, .volume_slider {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  height: 5px;
-  background: rgb(224, 12, 12);
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* styling del punto bianco riproduzione ( thumb ) */
-.seek_slider::-webkit-slider-thumb, .volume_slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  background: rgb(255, 255, 255);
-  cursor: pointer;
-  border-radius: 100%;
-}
-
-.seek_slider {  /* GRANDEZZA PLAYER LINEA */
-  width: 60%;
-}
-
-.volume_slider { /* GRANDEZZA VOLUME LINEA */
-  width: 60%;
-}
-
-
 
