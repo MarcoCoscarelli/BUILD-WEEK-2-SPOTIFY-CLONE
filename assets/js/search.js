@@ -269,7 +269,7 @@ function displayArtist(singleArtist) {
             countMap[singleName]++;
         } else {
             countMap[singleName] = 1;
-        } 
+        }
     };
 
     console.log(arrayName);
@@ -324,22 +324,24 @@ function displayArtist(singleArtist) {
 
 let debounceTimer;
 
-form.addEventListener('input', function() {
+form.addEventListener('input', function () {
 
 
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
         let searchQ = inputSearch.value.trim();
-        containerSearch.innerHTML = ``;
-
+        
         if (searchQ.length > 0) {
+            containerSearch.innerHTML = ``;
             search(searchQ);
         } else {
-            cardList.style.display = 'flex';
+            containerSearch.innerHTML = ``;
+            cardList.style.visibility = 'visible';
+            displayPlaylist()
         };
-    }, 
-    
-    300);
+    },
+
+        300);
 });
 
 
