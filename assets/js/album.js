@@ -34,11 +34,16 @@ function modalNostrum() {
 }
 
 // FUNZIONE X PLAYER SPOTIFY
+
+const addressBarParameters = new URLSearchParams(location.search)
+const albumId = addressBarParameters.get('albumId') // questo torna l'_id nella barra degli indirizzi
+console.log('albumId', albumId)
+
 let track_index = 0;
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
 const getAlbum = function () {
-  fetch(URL + 108564)
+  fetch(URL + albumId)
     .then((response) => {
       if (response.ok) {
         return response.json();
