@@ -30,20 +30,27 @@ const getAlbum = function () {
     })
     .then((album) => {
       let songs = album.tracks.data;
-      let track_list = createArray(songs);
-
-      // Load the first track in the tracklist
-      // loadTrack(track_index, track_list);
-
-      displaySongs(songs, track_list);
+      displayAlbumInfo(album, songs);
+      displaySongs(songs, createArray(songs));
     })
     .catch((error) => {
       console.log("ERRORE!", error);
     });
 };
 
+function displayAlbumInfo(album, songs) {
+  console.log(album);
+  document.getElementById("album-img").src = album.cover_big;
+  document.getElementById("artist-img").src = album.artist.picture_small;
+  document.getElementById("album-title").innerText = album.title;
+  document.getElementById("album-artist-name").innerText = album.artist.name;
+  document.getElementById("album-release-date").innerText = new Date(album.release_date).getFullYear();
+  document.getElementById("tracks-number").innerText = songs.length + " brani,";
+  document.getElementById("album-duration").innerText = " " + formatSecondsWithLetters(album.duration);
+
+}
+
 function createArray(songs) {
-  console.log(songs);
   let track_list = [];
   songs.forEach((song) => {
     track_list.push({
@@ -63,6 +70,15 @@ function formatSeconds(seconds) {
   secondsLeft = secondsLeft < 10 ? "0" + secondsLeft : secondsLeft;
 
   return minutes + ":" + secondsLeft;
+}
+
+function formatSecondsWithLetters(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let secondsLeft = seconds % 60;
+
+  secondsLeft = secondsLeft < 10 ? "0" + secondsLeft : secondsLeft;
+
+  return minutes + " min " + secondsLeft + " sec.";
 }
 
 /*
@@ -142,7 +158,6 @@ let updateTimer;
 let curr_track = document.createElement("audio");
 
 function loadTrack(track_index, track_list) {
-  console.log("qui dovresti caricare canzone!!")
   clearInterval(updateTimer);
   resetValues();
   curr_track.src = track_list[track_index].path;
