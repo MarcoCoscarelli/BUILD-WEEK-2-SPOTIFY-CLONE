@@ -1,15 +1,19 @@
+* {
+font-family: 'Circular'!important;
+}
+
 nav {
   background-color: #282828;
   color: #B2B2B2;
 }
 
 nav i {
-  font-size: 19px !important;
+  font-size: 20px !important;
 }
 
 
 nav span {
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 
 
@@ -66,7 +70,7 @@ nav span {
 /* STILE PER LA VISUALIZZAZIONE DI MODIFICA/ELIMINA PLAYLIST */
 
 .playlist-font {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 300;
 }
 .context-menu {
@@ -96,6 +100,9 @@ nav span {
   background-position: 0% 25%;
 }
 
+#followButton {
+  font-size: 14px !important;
+}
 .btn-success {
   background-color: #1ED760 !important;
 }

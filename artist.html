@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Artist Page Spotify Project</title>
+    <link rel="stylesheet" href="assets/css/circular-font.css">
+    <link rel="stylesheet" href="assets/css/artist.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
@@ -17,8 +19,6 @@
     <link rel="icon" href="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png"
         type="image/png" />
 
-    <link rel="stylesheet" href="assets/css/artist.css">
-    <link rel="stylesheet" href="assets/css/circular-font.css">
 </head>
 
 
@@ -109,7 +109,7 @@
                         <div class="me-3">
                             <img aria-hidden="true" draggable="false" loading="eager"
                                 src="https://misc.scdn.co/liked-songs/liked-songs-64.png" data-testid="entity-image"
-                                alt="Liked Songs" width="19" height="19" style="border-radius: 2px;"
+                                alt="Liked Songs" width="20" height="20" style="border-radius: 2px;"
                                 class="mMx2LUixlnN_Fu45JpFB iJp40IxKg6emF6KYJ414 yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj"
                                 srcset="
                     https://misc.scdn.co/liked-songs/liked-songs-64.png 32w,
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-12 d-flex align-items-center mb-4">
                         <div class="me-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="green"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green"
                                 class="bi bi-bookmark-fill bg-green p-1" viewBox="0 0 16 16"
                                 style="background-color: #074537; border-radius: 2px;">
                                 <path
@@ -280,14 +280,14 @@
                 <section class="container-fluid p-0 m-0 master-section">
                     <div class="row px-4 py-2 d-flex align-items-center justify-content-start m-0">
                         <div class="col-3 d-flex align-items-center gap-4 my-3">
-                            <div>
+                            <div role="button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="55" fill="#1ED760"
                                     class="play-btn bi bi-play-circle-fill" viewBox="0 0 16 16">
                                     <path
                                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
                                 </svg>
                             </div>
-                            <button type="button" class="btn btn-outline-light fw-bold">FOLLOWING</button>
+                            <button type="button" class="btn btn-outline-light fw-bold" id="followButton">FOLLOWING</button>
                             <button class="btn rounded-5 px-2 border-0 active"><i
                                     class="bi bi-three-dots fs-4"></i></button>
                         </div>
