@@ -1,4 +1,13 @@
+* {
+  font-family: circular, sans-serif;
+}
 
+nav {
+  margin-top: 1em;
+  background-color: #282828;
+ font-size: 1em;
+ color: #B2B2B2;
+}
 
   #inputSearch:hover {
     border: 2px solid rgb(100, 98, 98) !important;
@@ -6,6 +15,10 @@
 
   #inputSearch:focus {
     border: 2px solid white !important;
+  }
+
+  #main-content {
+    background: linear-gradient(to top, #121212, #212121);
   }
 
   .cardSize {
