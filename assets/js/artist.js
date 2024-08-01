@@ -15,54 +15,21 @@ const infoArtist = function () {
     .then((dataArtist) => {
       console.log(dataArtist);
       populateTitle(dataArtist);
-
-      //   imageBackground.innerHTML = `
-      //    <div class="d-flex justify-content-between align-items-center">
-      //           <div class="fs-4 d-flex">
-      //             <div class="me-3">
-      //               <i class="bi bi-arrow-left-circle"></i>
-      //             </div>
-      //             <div>
-      //               <i class="bi bi-arrow-right-circle rounded-pill m-0 p-0"></i>
-      //             </div>
-      //           </div>
-      //           <div class="dropdown">
-      //             <button class="btn btn-secondary dropdown-toggle d-flex align-items-center rounded-pill ps-0 pe-2 py-0"
-      //               type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      //               <div class="imageUser me-1">
-      //                 <img src="assets/imgs/main/image-1.jpg" class="img-fluid rounded-pill">
-      //               </div>
-      //               <span class="userName me-1">Riccardo Mamoli</span>
-      //             </button>
-      //             <ul class="dropdown-menu me-1" aria-labelledby="dropdownMenuButton1">
-      //               <li><a class="dropdown-item" href="#">Profile</a></li>
-      //               <li><a class="dropdown-item" href="#">Settings</a></li>
-      //               <li><a class="dropdown-item" href="#">Log Out</a></li>
-      //             </ul>
-      //           </div>
-      //         </div>
-      //         <div class="mt-3 d-flex mb-3">
-      //           <div class="d-flex flex-column justify-content-end">
-      //             <div>
-      //               <span><i class="bi bi-patch-check-fill"></i> Artista Verificato</span>
-      //             </div>
-      //             <div>
-      //               <h1 class="p-0 album-title fw-bold"> I Pinguini Tattici Nucleari </h1>
-      //             </div>
-      //             <div class="d-flex align-items-center">
-      //               <div>
-      //                 <div class="d-flex align-items-center justofy-content-center">
-      //                   <span class="fw-bold">
-      //                     1.000.000 ascoltatori mensili
-      //                   </span>
-      //                 </div>
-      //               </div>
-      //             </div>
-      //           </div>
-      //         </div>
-      //       </div>
-      //   `
+      return fetch(dataArtist.tracklist);
     })
+    .then((response) => {
+      console.log(response);
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw new Error('Ci sei quasi')
+      }
+    })
+    .then((dataTrack) => {
+      console.log(dataTrack)
+      populateTracks(dataTrack)
+    })
+
     .catch((error) => {
       console.log("Hai sbagliato qualcosa", error);
     });
@@ -71,8 +38,77 @@ const infoArtist = function () {
 const populateTitle = function (dataArtist) {
   const imageBackground = document.getElementById("imageBackground");
   imageBackground.style.backgroundImage = `url(${dataArtist.picture_xl})`;
-  const nameArtist = document.getElementById("nameArtist");
-  nameArtist.innerText = dataArtist.name;
-};
+  const artistTitle = document.getElementById('artistTitle')
+  artistTitle.innerText = dataArtist.name
+  const artistFan = document.getElementById('artistFan')
+  artistFan.innerText = `${dataArtist.nb_fan} ascoltatori mensili`
+}
 
-infoArtist();
+function formatSeconds(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let secondsLeft = seconds % 60;
+
+  secondsLeft = secondsLeft < 10 ? "0" + secondsLeft : secondsLeft;
+
+  return minutes + ":" + secondsLeft;
+}
+
+const populateTracks = function (dataTrack) {
+  let top50Songs = dataTrack.data
+  console.log(top50Songs)
+  const songsList = document.getElementById('songsList')
+  top50Songs.forEach((song, i) => {
+    let artistName = song.artist.name
+    let imageAlbum = song.album.cover_small;
+    let titleAlbum = song.title_short;
+    let albumId = song.id;
+    let durationSong = formatSeconds(song.duration)
+    console.log(songsList)
+
+    songsList.innerHTML += `
+    <div class="row px-4 py-2">
+     <div class="d-flex  align-items-center fw-lighter">
+       <div class="col-6 mb-2 d-flex align-items-center">
+         <div class="me-3">
+           <span>${i + 1}</span>
+           <img src=${imageAlbum} alt= imgAlbum
+         </div>
+         <div class="d-flex flex-column">
+           <span class="fw-bold">${titleAlbum}</span>
+           <span> ${artistName}</span>
+         </div>
+       </div>
+       <div class="col-3 d-flex justify-content-end">
+         <span>${albumId}</span>
+       </div>
+       <div class="col-3 d-flex justify-content-end">
+         <span>${durationSong}</span>
+       </div>
+     </div>
+   </div>
+  `
+  })
+
+}
+
+// FUNZIONE X APPARSA/SCOMPARSA ATTIVITA AMICI
+function modalNostrum() {
+  const test1 = document.getElementById("test_01");
+  const test2 = document.getElementById("test_02");
+
+
+  if (test2.classList.contains("col-10")) {
+    test2.classList.remove("col-10");
+    test2.classList.add("col-8");
+    test1.classList.toggle("d-none");
+
+  } else {
+    test2.classList.remove("col-8");
+    test2.classList.add("col-10");
+    test1.classList.toggle("d-none");
+  }
+}
+
+infoArtist()
+
+
