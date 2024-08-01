@@ -1,4 +1,5 @@
 // FUNZIONE X CREAZIONE PLAYLIST
+
 function createPlaylist() {
   const playlist = prompt(
     "Scrivi di seguito il nome della playlist",
@@ -15,7 +16,11 @@ function createPlaylist() {
   listOfPlay.appendChild(node);
 }
 
+
+
 // FUNZIONE X PLAYER SPOTIFY
+
+
 let track_index = 0;
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
@@ -50,6 +55,7 @@ function createArray(songs) {
       name: song.title,
       path: song.preview,
       artist: song.artist.name,
+      album_cover: song.album.cover,
     });
   });
 
@@ -96,11 +102,13 @@ function displaySongs(songs, track_list) {
 
 function displaySongs(songs, track_list) {
   const songsContainer = document.getElementById("songs");
+  const containerImgAlbum = document.getElementById('album-img');
+  const containerInfoAlbum = document.getElementById('containerInfoAlbum');
   songs.forEach((song, index) => {
-      const songDiv = document.createElement("div");
-      songDiv.classList.add("row", "px-4", "py-2");
-      songDiv.dataset.index = index;
-      songDiv.innerHTML = `
+    const songDiv = document.createElement("div");
+    songDiv.classList.add("row", "px-4", "py-2");
+    songDiv.dataset.index = index;
+    songDiv.innerHTML = `
           <div class="d-flex align-items-center fw-lighter">
               <div class="col-6 mb-2 d-flex align-items-center">
                   <div class="me-3">
@@ -119,9 +127,11 @@ function displaySongs(songs, track_list) {
               </div>
           </div>
       `;
-      songDiv.addEventListener("click", () => loadTrack(index, track_list));
-      songsContainer.appendChild(songDiv);
+    songDiv.addEventListener("click", () => loadTrack(index, track_list));
+    songsContainer.appendChild(songDiv);
+
   });
+
 }
 
 // let now_playing = document.querySelector(".now-playing");
@@ -138,18 +148,50 @@ let total_duration = document.querySelector(".total-duration");
 let isPlaying = false;
 let updateTimer;
 
+
+
+
+
+
 // Create new audio element
+sessionStorage.setItem("footerLocal", footer);
+console.log(footer);
+
+
+
 let curr_track = document.createElement("audio");
 
 function loadTrack(track_index, track_list) {
   console.log("qui dovresti caricare canzone!!")
   clearInterval(updateTimer);
   resetValues();
+
   curr_track.src = track_list[track_index].path;
+  sessionStorage.setItem('currentAudio', curr_track.src);
+
+
+  curr_track.img = track_list[track_index].album_cover;
+  sessionStorage.setItem('currentCover', curr_track.img);
+
+  curr_track.name = track_list[track_index].name;
+  sessionStorage.setItem('currentName', curr_track.name);
+
+  curr_track.artist = track_list[track_index].artist;
+  sessionStorage.setItem('currentArtist', curr_track.artist);
+
+  const imgPlayer = document.getElementById('imgPlayer');
+  const nameTrack = document.getElementById('nameTrack');
+  const nameArt = document.getElementById('nameArt');
+
+  imgPlayer.innerHTML = `  <img src="${curr_track.img}" class="img-fluid" />`
+  console.log(track_list)
+
+  nameTrack.innerHTML = `${curr_track.name}`;
+  nameArt.innerHTML = `${curr_track.artist}`;
+
+
   curr_track.load();
 
-  // now_playing.textContent =
-  //  "PLAYING " + (track_index + 1) + " OF " + track_list.length;
 
   updateTimer = setInterval(seekUpdate, 1000);
   curr_track.addEventListener("ended", nextTrack);
@@ -198,6 +240,7 @@ function prevTrack() {
 function seekTo() {
   let seekto = curr_track.duration * (seek_slider.value / 100);
   curr_track.currentTime = seekto;
+  sessionStorage.setItem('currentTiming', curr_track.currentTime);
 }
 
 function setVolume() {
@@ -239,30 +282,44 @@ function seekUpdate() {
   }
 }
 
-// Define the tracks that have to be played
-/*
-let track_list = [
-  {
-    name: "Night Owl",
-    artist: "Broke For Free",
-    image:
-      "https://images.pexels.com/photos/2264753/pexels-photo-2264753.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3",
-  },
-  {
-    name: "Enthusiast",
-    artist: "Tours",
-    image:
-      "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3",
-  },
-  {
-    name: "Shipping Lanes",
-    artist: "Chad Crouch",
-    image:
-      "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
-    path: "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
-  },
-];*/
 
-getAlbum();
+window.onload = () => {
+  let currentAudio = sessionStorage.getItem('currentAudio')
+  let currentCover = sessionStorage.getItem('currentCover')
+  let currentName = sessionStorage.getItem('currentName')
+  let currentArtist = sessionStorage.getItem('currentArtist')
+
+
+  if (currentAudio) {
+    curr_track.src = currentAudio;
+  }
+
+
+  if (currentCover) {
+    curr_track.img = currentCover;
+    const imgPlayer = document.getElementById('imgPlayer');
+    if (imgPlayer) {
+      imgPlayer.innerHTML = `<img src="${currentCover}" class="img-fluid" />`;
+    }
+  }
+
+
+  if (currentName) {
+    curr_track.name = currentName;
+    const nameTrack = document.getElementById('nameTrack');
+    if (nameTrack) {
+      nameTrack.textContent = currentName;
+    }
+  }
+
+
+  if (currentArtist) {
+    curr_track.artist = currentArtist;
+    const nameArt = document.getElementById('nameArt');
+    if (nameArt) {
+      nameArt.textContent = currentArtist;
+    }
+  }
+
+  getAlbum();
+}
