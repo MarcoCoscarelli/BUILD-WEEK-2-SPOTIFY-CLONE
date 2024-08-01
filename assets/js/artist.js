@@ -27,8 +27,8 @@ const infoArtist = function () {
     })
     .then((dataTrack) => {
       // console.log(dataTrack)
-      top50Songs = populateTracks(dataTrack)
-      showMoreTracks(top50Songs)
+      populateTracks(dataTrack)
+      showMoreTracks()
     })
 
     .catch((error) => {
@@ -40,7 +40,8 @@ infoArtist()
 
 
 let top50Songs = [];
-let songsCount = 0
+let songsCount = 0;
+let expanded = false;
 
 const populateArtistInfo = function (dataArtist) {
   const imageBackground = document.getElementById("imageBackground");
@@ -73,11 +74,12 @@ const populateTracks = function (dataTrack) {
   console.log(top50Songs)
   songsCount = 0
   loadSongs(5)
-  return top50Songs;
+  // return top50Songs;
 }
 
 const loadSongs = function (contatore) {
   const songsList = document.getElementById('songsList')
+  songsList.innerHTML = '' 
   for (let i = 0; i < top50Songs.length && i < songsCount + contatore; i++) {
     let song = top50Songs[i]
     let artistName = song.artist.name
@@ -109,15 +111,23 @@ const loadSongs = function (contatore) {
        </div>
      </div>
     `
-    songsCount += contatore
   }
+  songsCount += contatore
 }
 
-const showMoreTracks = function (top50Songs) {
-const btnOfExpand = document.getElementById('btnOfExpand')
-btnOfExpand.addEventListener('click', function () {
-  loadSongs(5);
-})
+const showMoreTracks = function () {
+  const btnOfExpand = document.getElementById('btnOfExpand')
+  btnOfExpand.addEventListener('click', function () {
+    if (!expanded) {
+      loadSongs(5);
+      btnOfExpand.innerText = "SHOW LESS";
+    } else {
+      songsCount -= 5;
+      loadSongs(0);
+      btnOfExpand.innerText = "SHOW MORE";
+    }
+    expanded = !expanded;
+  })
 }
 
 
