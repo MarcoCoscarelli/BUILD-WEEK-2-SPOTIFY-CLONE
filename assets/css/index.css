@@ -2,6 +2,11 @@
   font-family: circular, sans-serif;
 }
 
+nav {
+  background-color: #282828;
+ font-size: 2em;
+}
+
 /* STILE PER LA VISUALIZZAZIONE DI MODIFICA/ELIMINA PLAYLIST */
 .context-menu {
   position: absolute;
