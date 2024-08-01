@@ -44,7 +44,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 40vh;
-    /* background-position: center; */
+    background-position: 0% 25%;
 }
 
 .btn-success{
