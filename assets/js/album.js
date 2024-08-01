@@ -5,8 +5,6 @@ function createPlaylist() {
     "ES: Summer 2K21"
   );
 
-  // localStorage.setItem("nome playlist", playlist)
-  // const localPlay = localStorage.getItem(playlist)
 
   const listOfPlay = document.getElementById("playlist-index");
   const node = document.createElement("li");
@@ -99,34 +97,7 @@ function formatSecondsWithLetters(seconds) {
   return minutes + " min " + secondsLeft + " sec.";
 }
 
-/*
 
-function displaySongs(songs, track_list) {
-  songs.forEach((song) => {
-    // song.preview
-    document.getElementById("songs").innerHTML += `
-        <div class="row px-4 py-2" onClick="loadTrack(${songs.indexOf(song)}, ${track_list})">
-            <div class="d-flex  align-items-center fw-lighter">
-                <div class="col-6 mb-2 d-flex align-items-center">
-                <div class="me-3">
-                    <span>${songs.indexOf(song) + 1}</span>
-                </div>
-                <div class="d-flex flex-column">
-                    <span class="fw-bold">${song.title}</span>
-                    <span>${song.artist.name}</span>
-                </div>
-                </div>
-                <div class="col-3 d-flex justify-content-end">
-                <span>${song.id}</span>
-                </div>
-                <div class="col-3 d-flex justify-content-end">
-                <span>${formatSeconds(song.duration)}</span>
-                </div>
-            </div>
-        </div>
-    `;
-  });
-}*/
 
 function displaySongs(songs, track_list) {
   const songsContainer = document.getElementById("songs");
@@ -271,6 +242,28 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const img = document.getElementById('album-img');
+
+  img.onload = function() {
+    Vibrant.from(img.src).getPalette()
+      .then((palette) => {
+        const mainColor = palette.Vibrant.getHex();
+        console.log(mainColor); // Stampa il colore principale
+
+        // Applicare il colore di sfondo a #album-info
+        const albumInfo = document.getElementById('album-info');
+        albumInfo.style.backgroundColor = mainColor;
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  img.src = '/mnt/data/immagine_2022-10-17_003405925.png';
+});
 
 // Define the tracks that have to be played
 /*
