@@ -4,7 +4,8 @@
 
 nav {
   background-color: #282828;
- font-size: 2em;
+ font-size: 1.3em;
+ color: #B2B2B2;
 }
 
 /* STILE PER LA VISUALIZZAZIONE DI MODIFICA/ELIMINA PLAYLIST */
@@ -160,6 +161,14 @@ nav {
     background-color: #0A0A0A;
     border: none;
     padding: 2px 0;
+  }
+
+  .dropdown-menu {
+    background-color: #212529;
+  }
+
+  .dropdown-menu a {
+    color: white;
   }
 
   /* ICONE DEL MENU FRIENDS A SCOMPARSA */
