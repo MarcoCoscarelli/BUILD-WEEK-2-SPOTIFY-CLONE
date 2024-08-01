@@ -186,8 +186,8 @@ let updateTimer;
 
 
 // Create new audio element
-sessionStorage.setItem("footerLocal", footer);
-console.log(footer);
+// sessionStorage.setItem("footerLocal", footer);
+// console.log(footer);
 
 
 

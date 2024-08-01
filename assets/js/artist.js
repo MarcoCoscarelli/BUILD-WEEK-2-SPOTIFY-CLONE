@@ -52,10 +52,15 @@ const populateArtistInfo = function (dataArtist) {
   artistFan.innerText = `${dataArtist.nb_fan} ascoltatori mensili`
   const imgSm = document.getElementById('imgSm')
   imgSm.innerHTML = `
+
   <img src="${dataArtist.picture_xl}" alt="img a caso" class="w-25 me-2">
-                      <div>
-                      <h6> Hai messo Mi piace a tot brani </h6>
-                      <p>Di ${dataArtist.name}</p>
+                      <div class="d-flex justify-content-center flex-column">
+                           <div>
+                               <span id="likeSpan" class="fs-6"> Hai messo Mi piace a tot brani </span>
+                         </div>
+                          <div>
+                                <p class="fw-lighter m-0" id="pNameArt">di ${dataArtist.name}</p>
+                              </div>
                     </div>
   `
 }
@@ -90,29 +95,31 @@ const loadSongs = function (contatore) {
     console.log(songsList)
 
     songsList.innerHTML += `
-      <div class="row px-4 py-2">
-       <div class="d-flex  align-items-center fw-lighter">
-         <div class="col-7 mb-2 d-flex align-items-center">
-           <div class="me-3 d-flex align-items-center">
-           <div class="me-3 d-flex justify-content-center align-items-center">
-             <span>${i + 1}</span>
-            </div>
+      <div id="singleSong" class="row d-flex align-items-center fw-lighter mb-1 rounded-2">
+        <div class="col-7 d-flex align-items-center p-0">
+
+        <div id="forcedIndex" class="d-flex justify-content-around align-items-center me-3">
+ 
+                   <div class="me-3 d-flex-jusitfy-content-center align-items-center py-2 px-2">
+                      <span>${i + 1}</span>
+                    </div>
+                   <div class="imgBox">
+                      <img src=${imageAlbum} alt="imgAlbum class"img-fluid">
+                    </div>
+           </div>           
+
             <div>
-             <img src=${imageAlbum} alt= imgAlbum>
-             </div>
-           </div>
-           <div class="d-flex flex-column">
-             <span class="fw-bold">${titleAlbum}</span>
-           </div>
-         </div>
-         <div class="col-3 d-flex justify-content-end">
-           <span>${albumId}</span>
-         </div>
-         <div class="col-3 d-flex justify-content-end">
-           <span>${durationSong}</span>
-         </div>
-       </div>
-     </div>
+                <span class="fw-bold">${titleAlbum}</span>
+              </div>
+        </div>
+    <div class="col-3 d-flex justify-content-end">
+        <span>${albumId}</span>
+    </div>
+    <div class="col-2 d-flex justify-content-end">
+        <span>${durationSong}</span>
+    </div>
+</div>
+
     `
   }
   songsCount += contatore

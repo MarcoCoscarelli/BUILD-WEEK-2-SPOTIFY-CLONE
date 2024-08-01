@@ -7,6 +7,10 @@ nav {
   color: #B2B2B2;
 }
 
+main {
+  padding-bottom: 90px !important;
+}
+
 nav i {
   font-size: 20px !important;
 }
@@ -96,7 +100,7 @@ nav span {
 #imageBackground {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 50vh;
+  height: 38vh;
   background-position: 0% 25%;
 }
 
@@ -119,8 +123,20 @@ nav span {
   background: linear-gradient(to top, #121212, #212121);
 }
 
+#imgSm {
+  width: 300px;
+}
+
 #imgSm img {
   border-radius: 50%;
+}
+
+#likeSpan {
+  font-size: 15px !important;
+}
+
+#pNameArt {
+  font-size: 13px;
 }
 
 /* FOOTER INDEX PAGE  */
@@ -142,4 +158,20 @@ footer {
 
 .userName {
   font-size: 12px;
+}
+
+#singleSong:hover {
+  cursor: pointer;
+  background-color:   rgba(77, 77, 77, 0.919)!important;
+
+}
+
+.imgBox {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.imgBox img {
+  height: 50px !important;
+  width: 50px !important;
 }
