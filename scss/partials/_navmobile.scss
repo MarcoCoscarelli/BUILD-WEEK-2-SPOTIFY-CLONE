@@ -1,0 +1,13 @@
+#navbarmobile {
+  color: $secondary-emphasis;
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(#000000b0, #000000ed, black);
+  div ul {
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+  }
+}
