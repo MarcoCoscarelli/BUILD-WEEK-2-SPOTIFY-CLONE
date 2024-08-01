@@ -45,7 +45,7 @@ function displayAlbumInfo(album, songs) {
   document.getElementById("album-title").innerText = album.title;
   document.getElementById("album-artist-name").innerText = album.artist.name;
   document.getElementById("album-release-date").innerText = new Date(album.release_date).getFullYear();
-  document.getElementById("tracks-number").innerText = songs.length + "brani, &nbsp;";
+  document.getElementById("tracks-number").innerText = songs.length + " brani,";
   document.getElementById("album-duration").innerText = " " + formatSecondsWithLetters(album.duration);
 
 }
