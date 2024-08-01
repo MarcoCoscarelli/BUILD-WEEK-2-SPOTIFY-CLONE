@@ -1,7 +1,15 @@
 nav {
   background-color: #282828;
- font-size: 1.3em;
- color: #B2B2B2;
+  color: #B2B2B2;
+}
+
+nav i {
+  font-size: 19px !important;
+}
+
+
+nav span {
+  font-size: 13px !important;
 }
 
 
@@ -24,6 +32,7 @@ nav {
 .icon-friend-list {
   font-size: 1.7em;
 }
+
 /* CARDS DEL MENU FRIENDS A SCOMPARSA */
 #cards-friend {
   font-size: 70%;
@@ -55,36 +64,41 @@ nav {
 }
 
 /* STILE PER LA VISUALIZZAZIONE DI MODIFICA/ELIMINA PLAYLIST */
+
+.playlist-font {
+  font-size: 13px;
+  font-weight: 300;
+}
 .context-menu {
-    position: absolute;
-    background-color: #333;
-    border: 1px solid #555;
-    border-radius: 4px;
-    z-index: 1000;
-    width: 150px;
-  }
-  
-  .context-menu div {
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .context-menu div:hover {
-    background-color: #555;
-  }
+  position: absolute;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  z-index: 1000;
+  width: 150px;
+}
+
+.context-menu div {
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.context-menu div:hover {
+  background-color: #555;
+}
 
 /* SEZIONE HERO */
 #imageBackground {
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 40vh;
-    background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+  background-position: 0% 25%;
 }
 
-.btn-success{
-    background-color: #1ED760 !important;
-  }
+.btn-success {
+  background-color: #1ED760 !important;
+}
 
 .album-cover {
   width: 25%;
@@ -94,8 +108,8 @@ nav {
   width: 75px;
 }
 
-.gradient-bg{
-    background: linear-gradient(to top, #121212, #212121);
+.gradient-bg {
+  background: linear-gradient(to top, #121212, #212121);
 }
 
 #imgSm img {
@@ -104,21 +118,21 @@ nav {
 
 /* FOOTER INDEX PAGE  */
 footer {
-    height: 90px !important;
-    position: fixed !important;
-    bottom: 0px;
-    width: 100%;
-    background-color: #121212;
-  }
-  
-  .fixedSize {
-    height: 130px !important;
-  }
-  
-  .imageUser {
-    width: 30px;
-  }
-  
-  .userName {
-    font-size: 12px;
-  }
+  height: 90px !important;
+  position: fixed !important;
+  bottom: 0px;
+  width: 100%;
+  background-color: #121212;
+}
+
+.fixedSize {
+  height: 130px !important;
+}
+
+.imageUser {
+  width: 30px;
+}
+
+.userName {
+  font-size: 12px;
+}

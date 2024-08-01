@@ -92,14 +92,17 @@ const loadSongs = function (contatore) {
     songsList.innerHTML += `
       <div class="row px-4 py-2">
        <div class="d-flex  align-items-center fw-lighter">
-         <div class="col-6 mb-2 d-flex align-items-center">
-           <div class="me-3">
+         <div class="col-7 mb-2 d-flex align-items-center">
+           <div class="me-3 d-flex align-items-center">
+           <div class="me-3 d-flex justify-content-center align-items-center">
              <span>${i + 1}</span>
-             <img src=${imageAlbum} alt= imgAlbum
+            </div>
+            <div>
+             <img src=${imageAlbum} alt= imgAlbum>
+             </div>
            </div>
            <div class="d-flex flex-column">
              <span class="fw-bold">${titleAlbum}</span>
-             <span> ${artistName}</span>
            </div>
          </div>
          <div class="col-3 d-flex justify-content-end">
