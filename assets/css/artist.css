@@ -1,3 +1,38 @@
+nav {
+  background-color: #282828;
+ font-size: 1.3em;
+ color: #B2B2B2;
+}
+
+
+/* LOGO PROFILO OPTION  */
+#dropdownMenuButton1 {
+  background-color: #0A0A0A;
+  border: none;
+  padding: 2px 0;
+}
+
+.dropdown-menu {
+  background-color: #212529;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+/* ICONE DEL MENU FRIENDS A SCOMPARSA */
+.icon-friend-list {
+  font-size: 1.7em;
+}
+/* CARDS DEL MENU FRIENDS A SCOMPARSA */
+#cards-friend {
+  font-size: 70%;
+}
+
+.img-cards-friend {
+  width: 80%;
+}
+
 .barWhite {
   height: 4px !important;
   border-radius: 50px;

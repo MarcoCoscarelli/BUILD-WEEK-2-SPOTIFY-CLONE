@@ -16,7 +16,23 @@ function createPlaylist() {
   listOfPlay.appendChild(node);
 }
 
+// FUNZIONE X APPARSA/SCOMPARSA ATTIVITA AMICI
+function modalNostrum() {
+  const test1 = document.getElementById("test_01");
+  const test2 = document.getElementById("test_02");
 
+
+  if (test2.classList.contains("col-10") ) {
+    test2.classList.remove("col-10");
+    test2.classList.add("col-8");
+    test1.classList.toggle("d-none");
+    
+  } else {
+    test2.classList.remove("col-8");
+    test2.classList.add("col-10");
+    test1.classList.toggle("d-none");
+  }
+}
 
 // FUNZIONE X PLAYER SPOTIFY
 
@@ -35,20 +51,27 @@ const getAlbum = function () {
     })
     .then((album) => {
       let songs = album.tracks.data;
-      let track_list = createArray(songs);
-
-      // Load the first track in the tracklist
-      // loadTrack(track_index, track_list);
-
-      displaySongs(songs, track_list);
+      displayAlbumInfo(album, songs);
+      displaySongs(songs, createArray(songs));
     })
     .catch((error) => {
       console.log("ERRORE!", error);
     });
 };
 
+function displayAlbumInfo(album, songs) {
+  console.log(album);
+  document.getElementById("album-img").src = album.cover_big;
+  document.getElementById("artist-img").src = album.artist.picture_small;
+  document.getElementById("album-title").innerText = album.title;
+  document.getElementById("album-artist-name").innerText = album.artist.name;
+  document.getElementById("album-release-date").innerText = new Date(album.release_date).getFullYear();
+  document.getElementById("tracks-number").innerText = songs.length + "brani, &nbsp;";
+  document.getElementById("album-duration").innerText = " " + formatSecondsWithLetters(album.duration);
+
+}
+
 function createArray(songs) {
-  console.log(songs);
   let track_list = [];
   songs.forEach((song) => {
     track_list.push({
@@ -69,6 +92,15 @@ function formatSeconds(seconds) {
   secondsLeft = secondsLeft < 10 ? "0" + secondsLeft : secondsLeft;
 
   return minutes + ":" + secondsLeft;
+}
+
+function formatSecondsWithLetters(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let secondsLeft = seconds % 60;
+
+  secondsLeft = secondsLeft < 10 ? "0" + secondsLeft : secondsLeft;
+
+  return minutes + " min " + secondsLeft + " sec.";
 }
 
 /*
@@ -162,7 +194,6 @@ console.log(footer);
 let curr_track = document.createElement("audio");
 
 function loadTrack(track_index, track_list) {
-  console.log("qui dovresti caricare canzone!!")
   clearInterval(updateTimer);
   resetValues();
 

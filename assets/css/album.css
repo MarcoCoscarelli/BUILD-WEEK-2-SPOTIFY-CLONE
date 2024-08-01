@@ -1,66 +1,37 @@
-/*footer {
-  height: 90px !important;
-  position: fixed !important;
-  bottom: 0px;
-  width: 100%;
-}
-
-.fixedSize {
-  height: 130px !important;
-}
-
-.imageUser {
-  width: 30px;
-}
-
-.userName {
-  font-size: 12px;
-}
-
-.yellow-back {
-  background-color: #D0B44A;
-}
-
-.album-cover {
-  width: 25%;
-}
-
-.album-title {
-  font-size: 5rem;
-}
-
-.imgPlayer {
-  width: 75px;
-}
-
-.barWhite {
-  height: 4px !important;
-  border-radius: 50px;
-}
-
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-
-
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}*/
-
 * {
   font-family: circular, sans-serif;
+}
+
+nav {
+  background-color: #282828;
+ font-size: 1.3em;
+ color: #B2B2B2;
+}
+
+/* BUTTON HEAD PARTE CENTRALE  */
+#button-after, #button-before {
+  /* background-color: #141414 !important; */
+  color: white;
+  border: none;
+  font-size: 1.4em;
+}
+
+
+.btn-success{
+  background-color: #1ED760 !important;
+}
+
+/* ICONE DEL MENU FRIENDS A SCOMPARSA */
+.icon-friend-list {
+  font-size: 1.7em;
+}
+/* CARDS DEL MENU FRIENDS A SCOMPARSA */
+#cards-friend {
+  font-size: 70%;
+}
+
+.img-cards-friend {
+  width: 80%;
 }
 
 /* SCROLL BAR */
@@ -96,46 +67,6 @@
 .gradient-bg-ads {
   background: linear-gradient(to right top, black, #212121);
 }
-
-/* Buonasera Section */
-.box-hero {
-  background-color: #2C2C2C;
-}
-
-.playlist-container {
-  width: 100px; 
-  height: 100px; 
-}
-
-.image-item {
-  width: 50%; 
-  height: 50%; 
-  object-fit: cover; 
-}
-
-/* CARDS INDEX PAGE */
-.card {
-  border: none;
-  background-color: #181818;
-}
-
-.card-title {
-  font-size: 14px;
-}
-
-.card-body {
-  padding: 10px;
-  
-}
-
-
-
-.full-image {
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-}
-
 
 /* FOOTER INDEX PAGE  */
   footer {
@@ -177,14 +108,6 @@
   .barWhite {
     height: 4px !important;
     border-radius: 50px;
-  }
-
-  /* BUTTON HEAD PARTE CENTRALE  */
-  #button-after, #button-before {
-    background-color: #141414 !important;
-    color: white;
-    border: none;
-    font-size: 1.4em;
   }
 
   /* LOGO PROFILO OPTION  */
