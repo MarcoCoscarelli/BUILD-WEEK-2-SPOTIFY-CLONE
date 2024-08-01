@@ -26,23 +26,23 @@
     <!-- SUDDIVISIONE COLONNE-->
     <div class="container-fluid m-0 p-0">
 
-        <div class="row">
+        <div class="row main-content">
             <!-- SX -->
             <div class="d-flex">
                 <!-- PRIMA COLONNA-->
-                <nav class="col-2 bg-black d-flex flex-column vh-100 ps-4 pt-4">
+                <nav class="col-2 bg-black d-flex flex-column vh-100  pt-3">
                     <p class="bi bi-three-dots"></p>
-                    <p class="bi bi-house-fill">&nbspHome</p>
-                    <p class="bi bi-search">&nbspCerca</p>
+                    <a href="./index.html" class="bi bi-house-fill link-item">&nbspHome</a>
+                    <a href="./search.html" class="bi bi-search link-item">&nbspCerca</a>
                     <p class="bi bi-music-note-list mb-4">&nbspLa tua libreria</p>
-                    <p class="bi bi-plus-square-fill" role="button" onclick="createPlaylist()">&nbspCrea playlist
+                    <p class="bi bi-plus-square-fill" role="button" onclick="createPlaylist()">
+                        &nbspCrea playlist
                     </p>
                     <p class="bi bi-heart-fill">&nbspBrani che ti piacciono</p>
                     <p class="bi bi-bookmark-fill">&nbspI tuoi episodi</p>
                     <hr />
                     <div class="overflow-auto">
                         <!-- SEZIONE PLAYLIST-->
-
                         <ul class="navbar-nav" id="playlist-index">
                             <!-- PLAYLIST AGGIUNTE DINAMICAMENTE -->
                         </ul>

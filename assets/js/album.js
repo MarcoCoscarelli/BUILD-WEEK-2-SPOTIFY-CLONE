@@ -97,8 +97,6 @@ function formatSecondsWithLetters(seconds) {
   return minutes + " min " + secondsLeft + " sec.";
 }
 
-
-
 function displaySongs(songs, track_list) {
   const songsContainer = document.getElementById("songs");
   songs.forEach((song, index) => {
@@ -106,7 +104,7 @@ function displaySongs(songs, track_list) {
       songDiv.classList.add("row", "px-4", "py-2");
       songDiv.dataset.index = index;
       songDiv.innerHTML = `
-          <div class="d-flex align-items-center fw-lighter">
+          <div class="d-flex align-items-center fw-lighter song-row">
               <div class="col-6 mb-2 d-flex align-items-center">
                   <div class="me-3">
                       <span>${index + 1}</span>

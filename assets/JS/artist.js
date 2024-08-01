@@ -54,42 +54,29 @@ function formatSeconds(seconds) {
 }
 
 const populateTracks = function (dataTrack) {
-  let top50Songs = dataTrack.data
-  console.log(top50Songs)
-  const songsList = document.getElementById('songsList')
+  let top50Songs = dataTrack.data;
+  console.log(top50Songs);
+  const songsList = document.getElementById('songsList');
+  songsList.innerHTML = ''; // Assicurati di svuotare la lista prima di aggiungere nuovi elementi
   top50Songs.forEach((song, i) => {
-    let artistName = song.artist.name
     let imageAlbum = song.album.cover_small;
     let titleAlbum = song.title_short;
     let albumId = song.id;
-    let durationSong = formatSeconds(song.duration)
-    console.log(songsList)
+    let durationSong = formatSeconds(song.duration);
+    console.log(songsList);
 
     songsList.innerHTML += `
-    <div class="row px-4 py-2">
-     <div class="d-flex  align-items-center fw-lighter">
-       <div class="col-6 mb-2 d-flex align-items-center">
-         <div class="me-3">
-           <span>${i + 1}</span>
-           <img src=${imageAlbum} alt= imgAlbum
-         </div>
-         <div class="d-flex flex-column">
-           <span class="fw-bold">${titleAlbum}</span>
-           <span> ${artistName}</span>
-         </div>
-       </div>
-       <div class="col-3 d-flex justify-content-end">
-         <span>${albumId}</span>
-       </div>
-       <div class="col-3 d-flex justify-content-end">
-         <span>${durationSong}</span>
-       </div>
-     </div>
-   </div>
-  `
-  })
+      <div class="track-row">
+        <span class="track-number">${i + 1}</span>
+        <img src=${imageAlbum} alt="imgAlbum" class="img-album">
+        <span class="track-title">${titleAlbum}</span>
+        <span class="album-id">${albumId}</span>
+        <span class="duration-song">${durationSong}</span>
+      </div>
+    `;
+  });
+};
 
-}
 
 // FUNZIONE X APPARSA/SCOMPARSA ATTIVITA AMICI
 function modalNostrum() {

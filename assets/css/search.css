@@ -5,110 +5,140 @@
 nav {
   margin-top: 1em;
   background-color: #282828;
- font-size: 1em;
- color: #B2B2B2;
+  font-size: 1em;
+  color: #b2b2b2;
 }
 
-  #inputSearch:hover {
-    border: 2px solid rgb(100, 98, 98) !important;
-  }
+a.link-item {
+  text-decoration: none;
+  color: #b2b2b2;
+  margin-bottom: 1em;
+  display: inline-block;
+  padding-left: 1em;
+}
 
-  #inputSearch:focus {
-    border: 2px solid white !important;
-  }
+a.link-item:hover {
+  background-color: #333;
+  color: white;
+}
 
-  #main-content {
-    background: linear-gradient(to top, #121212, #212121);
-  }
+nav p {
+  cursor: pointer;
+  padding-left: 1em;
+}
 
-  .cardSize {
-    height: 155px !important;
-  }
+nav p:hover {
+  background-color: #333;
+  color: white;
+}
 
-  .singleCard {
-    cursor: pointer;
-  }
+li {
+  padding-left: 1em;
+}
 
-  .singleCard:hover {
-    opacity: 0.3;
-  }
+li:hover {
+  background-color: #333;
+  cursor: pointer;
+}
 
-  .rotatedImage {
-    transform: rotate(25deg);
-    width: 140px !important;
-    position: absolute;
-    top: 40%;
-    left: 58%;
-  }
+#inputSearch:hover {
+  border: 2px solid rgb(100, 98, 98) !important;
+}
 
-  ::placeholder {
-    font-size: 13px !important;
-    padding-bottom: 10px !important;
-  }
+#inputSearch:focus {
+  border: 2px solid white !important;
+}
 
-  .customSearch {
-    font-size: 16px !important;
-  }
-  
-  .fixedSize {
-    height: 130px !important;
-  }
+#cardList {
+  margin-bottom: 10vh;
+}
 
-  .imageArtistSearch {
-    width: 100px;
-  }
-  
-  .imageUser {
-    width: 30px;
-  }
-  
-  .userName {
-    font-size: 12px;
-  }
-  
-  
-  .album-cover {
-    width: 25%;
-  }
-  
-  .album-title {
-    font-size: 5rem;
-  }
-  
-  .imgPlayer {
-    width: 75px;
-  }
-  
-  .barWhite {
-    height: 4px !important;
-    border-radius: 50px;
-  }
-  
-  
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  
-  
-  ::-webkit-scrollbar-track {
-    background: #000000;
-  }
-  
-  
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+#main-content {
+  background: linear-gradient(to top, #121212, #212121);
+}
 
-  footer {
-    height: 90px !important;
-    position: fixed !important;
-    bottom: 0px;
-    width: 100%;
-    background-color: #121212;
-  }
+.cardSize {
+  height: 155px !important;
+}
+
+.singleCard {
+  cursor: pointer;
+}
+
+.singleCard:hover {
+  opacity: 0.3;
+}
+
+.rotatedImage {
+  transform: rotate(25deg);
+  width: 140px !important;
+  position: absolute;
+  top: 40%;
+  left: 58%;
+}
+
+::placeholder {
+  font-size: 13px !important;
+  padding-bottom: 10px !important;
+}
+
+.customSearch {
+  font-size: 16px !important;
+}
+
+.fixedSize {
+  height: 130px !important;
+}
+
+.imageArtistSearch {
+  width: 100px;
+}
+
+.imageUser {
+  width: 30px;
+}
+
+.userName {
+  font-size: 12px;
+}
+
+.album-cover {
+  width: 25%;
+}
+
+.album-title {
+  font-size: 5rem;
+}
+
+.imgPlayer {
+  width: 75px;
+}
+
+.barWhite {
+  height: 4px !important;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+footer {
+  height: 90px !important;
+  position: fixed !important;
+  bottom: 0px;
+  width: 100%;
+  background-color: #121212;
+}

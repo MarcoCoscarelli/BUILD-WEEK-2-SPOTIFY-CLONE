@@ -9,6 +9,39 @@ nav {
  color: #B2B2B2;
 }
 
+a.link-item {
+  text-decoration: none;
+  color: #B2B2B2;
+  margin-bottom: 1em;
+  display: inline-block;
+  padding-left: 1em;
+}
+
+a.link-item:hover {
+  background-color:  #333;
+  color: white;
+}
+
+nav p {
+  cursor: pointer;
+  padding-left: 1em;
+}
+
+
+nav p:hover {
+  background-color:  #333;
+  color: white;
+}
+
+li {
+  padding-left: 1em;
+}
+
+li:hover {
+  background-color: #333;
+  cursor: pointer;
+}
+
 
 /* LOGO PROFILO OPTION  */
 #dropdownMenuButton1 {
@@ -107,23 +140,83 @@ nav {
   border-radius: 50%;
 }
 
-/* FOOTER INDEX PAGE  */
+/* SEZIONE BRANI POPOLARI */
+#songsList {
+  display: grid;
+  grid-template-columns: 50px 60px 1fr 100px 100px;
+  gap: 10px;
+}
+
+.track-row {
+  display: contents;
+}
+
+.track-row:hover {
+  /* background-color: #333; NON FUNZIONA */
+  cursor: pointer;
+}
+
+.track-number {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-album {
+  grid-column: 2;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+}
+
+.track-title {
+  grid-column: 3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
+.album-id {
+  grid-column: 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.duration-song {
+  grid-column: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* FOOTER */
 footer {
-    height: 90px !important;
-    position: fixed !important;
-    bottom: 0px;
-    width: 100%;
-    background-color: #121212;
-  }
-  
-  .fixedSize {
-    height: 130px !important;
-  }
-  
-  .imageUser {
-    width: 30px;
-  }
-  
-  .userName {
-    font-size: 12px;
-  }
+  height: 90px !important;
+  position: fixed !important;
+  bottom: 0px;
+  width: 100%;
+  background-color: #121212;
+  z-index: 1000; 
+}
+
+.main-content {
+  margin-bottom: 5vh;
+}
+
+.fixedSize {
+  height: 130px !important;
+}
+
+.imageUser {
+  width: 30px;
+}
+
+.userName {
+  font-size: 12px;
+}
