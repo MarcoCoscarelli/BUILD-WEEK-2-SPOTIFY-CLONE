@@ -1,66 +1,40 @@
-/*footer {
-  height: 90px !important;
-  position: fixed !important;
-  bottom: 0px;
-  width: 100%;
-}
-
-.fixedSize {
-  height: 130px !important;
-}
-
-.imageUser {
-  width: 30px;
-}
-
-.userName {
-  font-size: 12px;
-}
-
-.yellow-back {
-  background-color: #D0B44A;
-}
-
-.album-cover {
-  width: 25%;
-}
-
-.album-title {
-  font-size: 5rem;
-}
-
-.imgPlayer {
-  width: 75px;
-}
-
-.barWhite {
-  height: 4px !important;
-  border-radius: 50px;
-}
-
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-
-
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}*/
 
 * {
   font-family: circular, sans-serif;
+}
+
+nav {
+  background-color: #282828;
+ font-size: 1.3em;
+ color: #B2B2B2;
+}
+
+/* BUTTON HEAD PARTE CENTRALE  */
+#button-after, #button-before {
+  /* background-color: #141414 !important; */
+  color: white;
+  border: none;
+  font-size: 1.4em;
+}
+
+/* LOGO PROFILO OPTION  */
+#dropdownMenuButton1 {
+  background-color: #0A0A0A;
+  border: none;
+  padding: 2px 0;
+}
+
+/* ICONE DEL MENU FRIENDS A SCOMPARSA */
+.icon-friend-list {
+  font-size: 1.7em;
+}
+/* CARDS DEL MENU FRIENDS A SCOMPARSA */
+#cards-friend {
+  font-size: 70%;
+}
+
+.img-cards-friend {
+  width: 80%;
 }
 
 /* SCROLL BAR */
@@ -177,14 +151,6 @@
   .barWhite {
     height: 4px !important;
     border-radius: 50px;
-  }
-
-  /* BUTTON HEAD PARTE CENTRALE  */
-  #button-after, #button-before {
-    background-color: #141414 !important;
-    color: white;
-    border: none;
-    font-size: 1.4em;
   }
 
   /* LOGO PROFILO OPTION  */
