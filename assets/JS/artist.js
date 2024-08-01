@@ -19,15 +19,15 @@ const infoArtist = function () {
     })
     .then((response) => {
       console.log(response);
-      if(response.ok) {
+      if (response.ok) {
         return response.json()
       } else {
-        throw new Error ('Ci sei quasi')
+        throw new Error('Ci sei quasi')
       }
     })
     .then((dataTrack) => {
-      console.log(dataTrack.data)
-      // populateTracks(dataTrack)
+      console.log(dataTrack)
+      populateTracks(dataTrack)
     })
 
     .catch((error) => {
@@ -44,35 +44,52 @@ const populateTitle = function (dataArtist) {
   artistFan.innerText = `${dataArtist.nb_fan} ascoltatori mensili`
 }
 
+function formatSeconds(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let secondsLeft = seconds % 60;
 
-// const populateTracks = function (dataTrack) {
-//   const songsList = document.getElementById('songsList')
-//   console.log(songsList)
-//   for (let i = 0; i < dataTrack.length; i++) {
+  secondsLeft = secondsLeft < 10 ? "0" + secondsLeft : secondsLeft;
 
-//     }
-//   songsList.innerHTML = `
-//   <div class="row px-4 py-2">
-//    <div class="d-flex  align-items-center fw-lighter">
-//      <div class="col-6 mb-2 d-flex align-items-center">
-//        <div class="me-3">
-//          <span>${dataTrack[0]}</span>
-//        </div>
-//        <div class="d-flex flex-column">
-//          <span class="fw-bold">${dataTrack[0].title_short}</span>
-//          <span> Pinguini Tattici Nucleari</span>
-//        </div>
-//      </div>
-//      <div class="col-3 d-flex justify-content-end">
-//        <span>694.578</span>
-//      </div>
-//      <div class="col-3 d-flex justify-content-end">
-//        <span>1:28</span>
-//      </div>
-//    </div>
-//  </div>
-// `
-// }
+  return minutes + ":" + secondsLeft;
+}
+
+const populateTracks = function (dataTrack) {
+  let top50Songs = dataTrack.data
+  console.log(top50Songs)
+  const songsList = document.getElementById('songsList')
+  top50Songs.forEach((song, i) => {
+    let artistName = song.artist.name
+    let imageAlbum = song.album.cover_small;
+    let titleAlbum = song.title_short;
+    let albumId = song.id;
+    let durationSong = formatSeconds(song.duration)
+    console.log(songsList)
+
+    songsList.innerHTML += `
+    <div class="row px-4 py-2">
+     <div class="d-flex  align-items-center fw-lighter">
+       <div class="col-6 mb-2 d-flex align-items-center">
+         <div class="me-3">
+           <span>${i + 1}</span>
+           <img src=${imageAlbum} alt= imgAlbum
+         </div>
+         <div class="d-flex flex-column">
+           <span class="fw-bold">${titleAlbum}</span>
+           <span> ${artistName}</span>
+         </div>
+       </div>
+       <div class="col-3 d-flex justify-content-end">
+         <span>${albumId}</span>
+       </div>
+       <div class="col-3 d-flex justify-content-end">
+         <span>${durationSong}</span>
+       </div>
+     </div>
+   </div>
+  `
+  })
+
+}
 
 // FUNZIONE X APPARSA/SCOMPARSA ATTIVITA AMICI
 function modalNostrum() {
@@ -80,11 +97,11 @@ function modalNostrum() {
   const test2 = document.getElementById("test_02");
 
 
-  if (test2.classList.contains("col-10") ) {
+  if (test2.classList.contains("col-10")) {
     test2.classList.remove("col-10");
     test2.classList.add("col-8");
     test1.classList.toggle("d-none");
-    
+
   } else {
     test2.classList.remove("col-8");
     test2.classList.add("col-10");
