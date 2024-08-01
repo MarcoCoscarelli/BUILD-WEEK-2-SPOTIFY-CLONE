@@ -1,4 +1,3 @@
-
 * {
   font-family: circular, sans-serif;
 }
@@ -17,11 +16,9 @@ nav {
   font-size: 1.4em;
 }
 
-/* LOGO PROFILO OPTION  */
-#dropdownMenuButton1 {
-  background-color: #0A0A0A;
-  border: none;
-  padding: 2px 0;
+
+.btn-success{
+  background-color: #1ED760 !important;
 }
 
 /* ICONE DEL MENU FRIENDS A SCOMPARSA */
@@ -70,46 +67,6 @@ nav {
 .gradient-bg-ads {
   background: linear-gradient(to right top, black, #212121);
 }
-
-/* Buonasera Section */
-.box-hero {
-  background-color: #2C2C2C;
-}
-
-.playlist-container {
-  width: 100px; 
-  height: 100px; 
-}
-
-.image-item {
-  width: 50%; 
-  height: 50%; 
-  object-fit: cover; 
-}
-
-/* CARDS INDEX PAGE */
-.card {
-  border: none;
-  background-color: #181818;
-}
-
-.card-title {
-  font-size: 14px;
-}
-
-.card-body {
-  padding: 10px;
-  
-}
-
-
-
-.full-image {
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-}
-
 
 /* FOOTER INDEX PAGE  */
   footer {

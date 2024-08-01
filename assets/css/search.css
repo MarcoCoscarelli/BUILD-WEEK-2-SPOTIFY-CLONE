@@ -1,9 +1,4 @@
-footer {
-    height: 90px !important;
-    position: fixed !important;
-    bottom: 0px;
-    width: 100%;
-  }
+
 
   #inputSearch:hover {
     border: 2px solid rgb(100, 98, 98) !important;
@@ -58,9 +53,6 @@ footer {
     font-size: 12px;
   }
   
-  .yellow-back {
-    background-color: #D0B44A;
-  }
   
   .album-cover {
     width: 25%;
@@ -100,3 +92,10 @@ footer {
     background: #555;
   }
 
+  footer {
+    height: 90px !important;
+    position: fixed !important;
+    bottom: 0px;
+    width: 100%;
+    background-color: #121212;
+  }
