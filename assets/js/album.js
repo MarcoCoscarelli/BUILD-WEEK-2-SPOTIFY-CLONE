@@ -313,6 +313,27 @@ function seekUpdate() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  const img = document.getElementById('album-img');
+
+  img.onload = function() {
+    Vibrant.from(img.src).getPalette()
+      .then((palette) => {
+        const mainColor = palette.Vibrant.getHex();
+        console.log(mainColor); // Stampa il colore principale
+
+        // Applicare il colore di sfondo a #album-info
+        const albumInfo = document.getElementById('album-info');
+        albumInfo.style.backgroundColor = mainColor;
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  img.src = '/mnt/data/immagine_2022-10-17_003405925.png';
+});
 
 window.onload = () => {
   let currentAudio = sessionStorage.getItem('currentAudio')
