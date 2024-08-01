@@ -3,8 +3,9 @@
 }
 
 nav {
+  margin-top: 1em;
   background-color: #282828;
- font-size: 1.3em;
+ font-size: 1em;
  color: #B2B2B2;
 }
 
@@ -16,6 +17,9 @@ nav {
   font-size: 1.4em;
 }
 
+#album-img{
+  box-shadow: 5px 10px 25px 20px rgba(0,0,0,0.25)
+}
 
 .btn-success{
   background-color: #1ED760 !important;
@@ -56,17 +60,11 @@ nav {
   
   /* MAIN SECTION INDEX PAGE */
 
-  .gradient-bg {
+  /* .gradient-bg {
     background: linear-gradient(to top, #121212, #212121);
-  }
+  } */
 
-.btn-success{
-  background-color: #1ED760 !important;
-}
 
-.gradient-bg-ads {
-  background: linear-gradient(to right top, black, #212121);
-}
 
 /* FOOTER INDEX PAGE  */
   footer {
@@ -89,9 +87,6 @@ nav {
     font-size: 12px;
   }
   
-  .yellow-back {
-    background-color: #D0B44A;
-  }
   
   .album-cover {
     width: 25%;
