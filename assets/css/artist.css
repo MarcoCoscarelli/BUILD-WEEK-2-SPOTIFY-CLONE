@@ -140,10 +140,6 @@ li:hover {
   border-radius: 50%;
 }
 
-#liked-img {
-  width: 75px;
-}
-
 /* SEZIONE BRANI POPOLARI */
 #songsList {
   display: grid;
