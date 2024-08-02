@@ -15,6 +15,6 @@ nav {
   }
 
   nav span:hover {
-    color: white !;
+    color: white !important;
     cursor: pointer;
   }

@@ -39,10 +39,11 @@ function modalNostrum() {
 
 let track_index = 0;
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
-const albumID = decodeURIComponent(search)
+const addressBarParameters = new URLSearchParams(location.search)
+const albumID = addressBarParameters.get('albumId');
 
 const getAlbum = function () {
-  fetch(URL + 108564)
+  fetch(URL + albumID)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -135,8 +136,6 @@ function displaySongs(songs, track_list) {
 
 function displaySongs(songs, track_list) {
   const songsContainer = document.getElementById("songs");
-  const containerImgAlbum = document.getElementById('album-img');
-  const containerInfoAlbum = document.getElementById('containerInfoAlbum');
   songs.forEach((song, index) => {
     const songDiv = document.createElement("div");
     songDiv.classList.add("row", "px-4", "py-2");
@@ -333,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   };
 
-  img.src = '/mnt/data/immagine_2022-10-17_003405925.png';
+  // img.src = '/mnt/data/immagine_2022-10-17_003405925.png';
 });
 
 window.onload = () => {
