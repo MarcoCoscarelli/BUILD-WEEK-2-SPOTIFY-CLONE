@@ -2,12 +2,6 @@
   font-family: circular, sans-serif;
 }
 
-nav {
-  margin-top: 1em;
-  background-color: #282828;
- font-size: 1em;
- color: #B2B2B2;
-}
 
 a.link-item {
   text-decoration: none;
@@ -63,6 +57,7 @@ li:hover {
 .context-menu div:hover {
   background-color: #555;
 }
+
 
 /* MODALI */
 .modal-content {

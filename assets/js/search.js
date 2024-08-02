@@ -263,7 +263,8 @@ function displayArtist(singleArtist) {
     for (i = 0; i < singleArtist.data.length; i++) {
         let singleName = singleArtist.data[i].artist.name;
         let singlePic = singleArtist.data[i].artist.picture;
-        arrayName.push({ name: singleName, picture: singlePic });
+        let singleID = singleArtist.data[i].artist.id;
+        arrayName.push({ name: singleName, picture: singlePic, id: singleID });
 
         if (countMap[singleName]) {
             countMap[singleName]++;
@@ -286,6 +287,7 @@ function displayArtist(singleArtist) {
     }
 
     let relevantPic = singleArtist.data.find(artist => artist.artist.name === mostFrequentArtist).artist.picture;
+    let relevantID = singleArtist.data.find(artist => artist.artist.name === mostFrequentArtist).artist.id;
     let relevantName = mostFrequentArtist;
 
 
@@ -297,7 +299,8 @@ function displayArtist(singleArtist) {
         <div class="col-12 p-0 mb-3">
             <h1 class="m-0 p-0"> Risultato piu rilevante</h1>
         </div>
-        <div class="col-5 bg-dark rounded-2 py-4">
+        <a href="./artist.html?artistID=${relevantID}" class="text-decoration-none text-light">
+        <div class="col-5 bg-dark rounded-2 py-4 px-3">
 
             <div class="imageArtistSearch">
                 <img src="${relevantPic}" class="img-fluid rounded-pill">
@@ -310,8 +313,7 @@ function displayArtist(singleArtist) {
             </div>
 
         </div>
-        <div class="col-7 bg-dark rounded-2 py-4">
-        
+        </a>
     </div>
 </div> 
 
@@ -343,29 +345,6 @@ form.addEventListener('input', function () {
 
         300);
 });
-
-
-// let debounceTimer;
-// form.addEventListener('input', function() {
-//     clearTimeout(debounceTimer);
-//     debounceTimer = setTimeout(() => {
-//         let searchQ = inputSearch.value.trim();
-//         if (searchQ.length === 0) {
-//             // Mostra la lista di card se l'input è vuoto
-//             containerSearch.innerHTML = "";
-//             cardList.style.display = 'block'; // Mostra di nuovo la lista di card
-//         } else {
-//             // Esegui la ricerca se l'input non è vuoto
-//             search(searchQ);
-//         }
-//     }, 400); // Ritardo per il debounce
-// });
-
-
-
-
-
-
 
 
 
