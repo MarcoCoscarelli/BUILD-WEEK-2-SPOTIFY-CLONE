@@ -247,6 +247,7 @@ function search(artist) {
         .then((singleArtist) => {
             console.log(singleArtist);
             console.log('Il suo ID è ' + singleArtist.data[0].artist.id)
+            console.log('Il suo ID è ' + singleArtist.data[0].artist.tracklist)
             displayArtist(singleArtist);
         })
         .catch((err) => {
@@ -264,7 +265,7 @@ function displayArtist(singleArtist) {
         let singleName = singleArtist.data[i].artist.name;
         let singlePic = singleArtist.data[i].artist.picture;
         let singleID = singleArtist.data[i].artist.id;
-        let singleTracklist = singleArtist.data[i].id;
+        let singleTracklist = singleArtist.data[i].id.title;
         arrayName.push({ name: singleName, picture: singlePic, id: singleID, tracklist: singleTracklist });
 
         if (countMap[singleName]) {
@@ -295,58 +296,7 @@ function displayArtist(singleArtist) {
     console.log(relevantTracklist)
 
 
-    cardList.style.visibility = 'hidden';
-    containerSearch.innerHTML += `
-
-     <div class="container-fluid">
-    <div class="row py-2 px-4 d-flex">
-        <div class="col-6 p-0 mb-3">
-            <h1 class="m-0 p-0"> Risultato piu rilevante</h1>
-        </div>
-         <div class="col-6 p-0 mb-3">
-            <h1 class="m-0 p-0"> Brani</h1>
-        </div>
-        <div class="col-6 rounded-2 ps-0 pe-4 px-3">
-        <a href="./artist.html?artistID=${relevantID}" class="text-decoration-none text-light">
-        <div class="bg-dark py-5 px-3 rounded-2">
-
-            <div class="imageArtistSearch">
-                <img src="${relevantPic}" class="img-fluid rounded-pill">
-            </div>
-            <div>
-                <span class="fs-2 fw-bold">${relevantName}</span>
-            </div>
-            <div>
-                <span class="fw-light">Artista</span>
-            </div>
-            </div>
-
-            </a>
-        </div>
-                <div class="col-6 rounded-2 ps-0 pe-4 px-3">
-        <a href="./artist.html?artistID=${relevantID}" class="text-decoration-none text-light">
-        <div class="bg-dark py-5 px-3 rounded-2">
-
-            <div>
-               <h1>Brani Popolari </h1>
-            </div>
-            <div>
-                <span class="fs-2 fw-bold">${relevantTracklist}</span>
-            </div>
-            <div>
-                <span class="fw-light">Artista</span>
-            </div>
-            </div>
-
-            </a>
-        </div>
-        
-    </div>
-</div> 
-
     
-    `
-
 
 }
 
