@@ -1,3 +1,16 @@
+let playpause_btn = document.querySelector(".playpause-track");
+let next_btn = document.querySelector(".next-track");
+let prev_btn = document.querySelector(".prev-track");
+
+let seek_slider = document.querySelector(".seek_slider");
+let volume_slider = document.querySelector(".volume_slider");
+let curr_time = document.querySelector(".current-time");
+let total_duration = document.querySelector(".total-duration");
+
+let is_playing_song = false;
+
+let curr_track = document.createElement("audio");
+
 // FUNZIONE X APPARSA/SCOMPARSA ATTIVITA AMICI
 function modalNostrum() {
   const test1 = document.getElementById("test_01");
@@ -14,26 +27,77 @@ function modalNostrum() {
   }
 }
 
-function doFetch(albumId) {
+function doMultipleFetch(albumId) {
   const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
   fetch(URL + albumId)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Errore nella chiamata, response non OK");
-        }
-      })
-      .then((album) => {
-        console.log(album)
-        generateRowAlbum(album);
-      })
-      .catch((error) => {
-        console.log("ERRORE!", error);
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Errore nella chiamata, response non OK");
       }
-  );
+    })
+    .then((album) => {
+      console.log(album);
+      generateRowAlbum(album);
+    })
+    .catch((error) => {
+      console.log("ERRORE!", error);
+    });
 }
+
+function doFetch() {
+  const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+
+  fetch(URL + 112275)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Errore nella chiamata, response non OK");
+      }
+    })
+    .then((album) => {
+      console.log(album);
+      generateAnnuncio(album);
+      document
+        .getElementById("play_button")
+        .addEventListener("click", function () {
+          // Create new audio element
+          curr_track.src = album.tracks.data[0].preview;
+
+          if (!is_playing_song) {
+            curr_track.load();
+            curr_track.play();
+            is_playing_song = true;
+          } else {
+            curr_track.pause();
+            is_playing_song = false;
+          }
+        });
+      
+      document.getElementById("nascondi_annunci").addEventListener("click", function() {
+        document.getElementById("annuncio").style.display = "none";
+      });
+    })
+    .catch((error) => {
+      console.log("ERRORE!", error);
+    });
+}
+
+function generateAnnuncio(album) {
+  document.getElementById("album_cover").src = album.cover_medium;
+  document.getElementById("nome_canzone").innerText =
+    album.tracks.data[0].title;
+  document.getElementById("nome_artista").innerText = album.artist.name;
+  document.getElementById("ascolta_singolo").innerText +=
+    " " + album.artist.name;
+}
+
+// nella index.html deve comparire una canzone random (al posto di dove ora ce viola)
+// sempre li al tasto play deve avviare la canzone
+// al click di nascondi annunci il div della canzone deve acquisire display none
 
 function generateRowAlbum(album) {
   document.getElementById("altro_che_ti_piace").innerHTML += `
@@ -52,46 +116,10 @@ function generateRowAlbum(album) {
                             `;
 }
 
-doFetch(1121401);
-doFetch(664237);
-doFetch(184617922);
-doFetch(479176555);
-doFetch(112275);
+doFetch();
 
-// // Funzione createPlaylist
-// function createPlaylist() {
-//   const playlist = prompt("Scrivi di seguito il nome della playlist", "ES: Summer 2K21");
-//   if (playlist) {
-//     // Aggiungi la playlist a localStorage
-//     let playlists = JSON.parse(localStorage.getItem("playlists")) || [];
-//     playlists.push(playlist);
-//     localStorage.setItem("playlists", JSON.stringify(playlists));
-
-//     // Aggiorna la lista di playlist nella pagina corrente
-//     const listOfPlay = document.getElementById("playlist-index");
-//     const node = document.createElement("li");
-//     node.classList.add("pt-2");
-//     node.textContent = playlist;
-//     listOfPlay.appendChild(node);
-//   }
-// }
-
-// // Funzione loadPlaylists
-// function loadPlaylists() {
-//   const playlists = JSON.parse(localStorage.getItem("playlists")) || [];
-//   const listOfPlay = document.getElementById("playlist-index");
-
-//   // Svuota la lista esistente
-//   listOfPlay.innerHTML = '';
-
-//   // Aggiungi le playlist caricate
-//   playlists.forEach(playlist => {
-//     const node = document.createElement("li");
-//     node.classList.add("pt-2");
-//     node.textContent = playlist;
-//     listOfPlay.appendChild(node);
-//   });
-// }
-
-// // Carica le playlist all'avvio della pagina
-// document.addEventListener("DOMContentLoaded", loadPlaylists);
+doMultipleFetch(1121401);
+doMultipleFetch(664237);
+doMultipleFetch(184617922);
+doMultipleFetch(479176555);
+doMultipleFetch(112275);

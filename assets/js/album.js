@@ -150,7 +150,7 @@ let updateTimer;
 let curr_track = document.createElement("audio");
 
 function loadTrack(track_index, track_list) {
-  clearInterval(updateTimer);
+  //clearInterval(updateTimer);
   resetValues();
   curr_track.src = track_list[track_index].path;
   curr_track.load();
