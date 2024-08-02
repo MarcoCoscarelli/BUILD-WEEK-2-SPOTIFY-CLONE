@@ -297,6 +297,7 @@ function displayArtist(singleArtist) {
         <div class="col-12 p-0 mb-3">
             <h1 class="m-0 p-0"> Risultato piu rilevante</h1>
         </div>
+        <a href="./album.html?albumId=${album.id}" class="text-decoration-none">
         <div class="col-5 bg-dark rounded-2 py-4">
 
             <div class="imageArtistSearch">
@@ -310,8 +311,7 @@ function displayArtist(singleArtist) {
             </div>
 
         </div>
-        <div class="col-7 bg-dark rounded-2 py-4">
-        
+        </a>
     </div>
 </div> 
 
@@ -343,29 +343,6 @@ form.addEventListener('input', function () {
 
         300);
 });
-
-
-// let debounceTimer;
-// form.addEventListener('input', function() {
-//     clearTimeout(debounceTimer);
-//     debounceTimer = setTimeout(() => {
-//         let searchQ = inputSearch.value.trim();
-//         if (searchQ.length === 0) {
-//             // Mostra la lista di card se l'input è vuoto
-//             containerSearch.innerHTML = "";
-//             cardList.style.display = 'block'; // Mostra di nuovo la lista di card
-//         } else {
-//             // Esegui la ricerca se l'input non è vuoto
-//             search(searchQ);
-//         }
-//     }, 400); // Ritardo per il debounce
-// });
-
-
-
-
-
-
 
 
 

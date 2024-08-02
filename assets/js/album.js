@@ -253,14 +253,26 @@ function playTrack() {
   curr_track.play();
   isPlaying = true;
   playpause_btn.innerHTML =
-    '<i role="button" class="bi bi-pause-circle-fill fs-2"></i>';
+ `<svg xmlns="http://www.w3.org/2000/svg" width="32" fill="currentColor" class="bi bi-play-circle-fill play-btn"
+  viewBox="0 0 16 16">
+  <path
+      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+</svg>`;
 }
 
 function pauseTrack() {
   curr_track.pause();
   isPlaying = false;
   playpause_btn.innerHTML =
-    '<i role="button" class="bi bi-play-circle-fill fs-2"></i>';
+  `
+     <svg aria-hidden="true" focusable="false" width="28" data-prefix="fas" data-icon="pause" class="svg-inline--fa fa-pause fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path fill="currentColor" d="M144 479h-80c-17.7 0-32-14.3-32-32V64c0-17.7 14.3-32 32-32h80c17.7 0 32 14.3 32 32v383c0 17.7-14.3 32-32 32zm240-32V64c0-17.7-14.3-32-32-32h-80c-17.7 0-32 14.3-32 32v383c0 17.7 14.3 32 32 32h80c17.7 0 32-14.3 32-32z"></path>
+</svg>
+
+     
+
+  `
+
 }
 
 function nextTrack() {
