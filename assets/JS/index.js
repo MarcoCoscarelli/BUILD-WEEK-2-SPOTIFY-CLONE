@@ -7,7 +7,7 @@ let volume_slider = document.querySelector(".volume_slider");
 let curr_time = document.querySelector(".current-time");
 let total_duration = document.querySelector(".total-duration");
 
-let is_playing_song = false;
+let isPlaying = false;
 
 let curr_track = document.createElement("audio");
 
@@ -64,22 +64,50 @@ function doFetch() {
       document
         .getElementById("play_button")
         .addEventListener("click", function () {
-          // Create new audio element
-          curr_track.src = album.tracks.data[0].preview;
+          let path = album.tracks.data[0].preview;
+          resetValues();
+          curr_track.src = path;
+          sessionStorage.setItem("currentAudio", curr_track.src);
 
-          if (!is_playing_song) {
-            curr_track.load();
+          curr_track.img = album.cover_medium;
+          sessionStorage.setItem("currentCover", curr_track.img);
+
+          curr_track.name = album.tracks.data[0].title;
+          sessionStorage.setItem("currentName", curr_track.name);
+
+          curr_track.artist = album.artist.name;
+          sessionStorage.setItem("currentArtist", curr_track.artist);
+
+          const imgPlayer = document.getElementById("imgPlayer");
+          const nameTrack = document.getElementById("nameTrack");
+          const nameArt = document.getElementById("nameArt");
+
+          imgPlayer.innerHTML = `  <img src="${curr_track.img}" class="img-fluid" />`;
+
+          nameTrack.innerHTML = `${curr_track.name}`;
+          nameArt.innerHTML = `${curr_track.artist}`;
+
+          curr_track.load();
+
+          updateTimer = setInterval(seekUpdate, 1000);
+          if (!isPlaying) {
             curr_track.play();
-            is_playing_song = true;
+            isPlaying = true;
+            playpause_btn.innerHTML = `
+            <svg aria-hidden="true" focusable="false" width="28" data-prefix="fas" data-icon="pause" class="svg-inline--fa fa-pause fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor" d="M144 479h-80c-17.7 0-32-14.3-32-32V64c0-17.7 14.3-32 32-32h80c17.7 0 32 14.3 32 32v383c0 17.7-14.3 32-32 32zm240-32V64c0-17.7-14.3-32-32-32h-80c-17.7 0-32 14.3-32 32v383c0 17.7 14.3 32 32 32h80c17.7 0 32-14.3 32-32z"></path>
+            </svg>  
+          `;
           } else {
             curr_track.pause();
-            is_playing_song = false;
+            isPlaying = false;
+            playpause_btn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" fill="currentColor" class="bi bi-pause-circle-fill play-btn"
+              viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+            </svg>`;
           }
         });
-      
-      document.getElementById("nascondi_annunci").addEventListener("click", function() {
-        document.getElementById("annuncio").style.display = "none";
-      });
     })
     .catch((error) => {
       console.log("ERRORE!", error);
@@ -94,10 +122,6 @@ function generateAnnuncio(album) {
   document.getElementById("ascolta_singolo").innerText +=
     " " + album.artist.name;
 }
-
-// nella index.html deve comparire una canzone random (al posto di dove ora ce viola)
-// sempre li al tasto play deve avviare la canzone
-// al click di nascondi annunci il div della canzone deve acquisire display none
 
 function generateRowAlbum(album) {
   document.getElementById("altro_che_ti_piace").innerHTML += `
@@ -116,10 +140,64 @@ function generateRowAlbum(album) {
                             `;
 }
 
-doFetch();
+
+
+function resetValues() {
+  curr_time.textContent = "00:00";
+  total_duration.textContent = "00:00";
+  seek_slider.value = 0;
+}
+
+
+function seekTo() {
+  let seekto = curr_track.duration * (seek_slider.value / 100);
+  curr_track.currentTime = seekto;
+  sessionStorage.setItem("currentTiming", curr_track.currentTime);
+}
+
+function setVolume() {
+  curr_track.volume = volume_slider.value / 100;
+}
+
+function seekUpdate() {
+  let seekPosition = 0;
+
+  if (!isNaN(curr_track.duration)) {
+    seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+
+    seek_slider.value = seekPosition;
+
+    let currentMinutes = Math.floor(curr_track.currentTime / 60);
+    let currentSeconds = Math.floor(
+      curr_track.currentTime - currentMinutes * 60
+    );
+    let durationMinutes = Math.floor(curr_track.duration / 60);
+    let durationSeconds = Math.floor(
+      curr_track.duration - durationMinutes * 60
+    );
+
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
+    }
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
+    }
+    if (currentMinutes < 10) {
+      currentMinutes = "0" + currentMinutes;
+    }
+    if (durationMinutes < 10) {
+      durationMinutes = "0" + durationMinutes;
+    }
+
+    curr_time.textContent = currentMinutes + ":" + currentSeconds;
+    total_duration.textContent = durationMinutes + ":" + durationSeconds;
+  }
+}
 
 doMultipleFetch(1121401);
 doMultipleFetch(664237);
 doMultipleFetch(184617922);
 doMultipleFetch(479176555);
 doMultipleFetch(112275);
+
+doFetch();

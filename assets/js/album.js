@@ -37,7 +37,7 @@ function modalNostrum() {
 // FUNZIONE X PLAYER SPOTIFY
 
 const addressBarParameters = new URLSearchParams(location.search)
-const albumId = addressBarParameters.get('albumId') // questo torna l'_id nella barra degli indirizzi
+const albumId = addressBarParameters.get('albumId')
 console.log('albumId', albumId)
 
 let track_index = 0;

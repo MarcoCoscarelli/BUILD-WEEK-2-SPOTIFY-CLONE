@@ -2,17 +2,16 @@
   font-family: circular, sans-serif;
 }
 
-
 a.link-item {
   text-decoration: none;
-  color: #B2B2B2;
+  color: #b2b2b2;
   margin-bottom: 1em;
   display: inline-block;
   padding-left: 1em;
 }
 
 a.link-item:hover {
-  background-color:  #333;
+  background-color: #333;
   color: white;
 }
 
@@ -21,9 +20,8 @@ nav p {
   padding-left: 1em;
 }
 
-
 nav p:hover {
-  background-color:  #333;
+  background-color: #333;
   color: white;
 }
 
@@ -35,8 +33,6 @@ li:hover {
   background-color: #333;
   cursor: pointer;
 }
-
-
 
 /* STILE PER LA VISUALIZZAZIONE DI MODIFICA/ELIMINA PLAYLIST */
 .context-menu {
@@ -58,44 +54,44 @@ li:hover {
   background-color: #555;
 }
 
-
 /* MODALI */
 .modal-content {
   border: none;
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
   border: none;
 }
 
 /* SCROLL BAR */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #000000; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
-  
-  /* MAIN SECTION INDEX PAGE */
+  width: 10px;
+}
 
-  .gradient-bg {
-    background: linear-gradient(to top, #121212, #212121);
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
 
-.btn-success{
-  background-color: #1ED760 !important;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* MAIN SECTION INDEX PAGE */
+
+.gradient-bg {
+  background: linear-gradient(to top, #121212, #212121);
+}
+
+.btn-success {
+  background-color: #1ed760 !important;
 }
 
 .gradient-bg-ads {
@@ -104,7 +100,7 @@ li:hover {
 
 /* Buonasera Section */
 .box-hero {
-  background-color: #2C2C2C;
+  background-color: #2c2c2c;
 }
 
 .box-hero:hover {
@@ -113,14 +109,14 @@ li:hover {
 }
 
 .playlist-container {
-  width: 100px; 
-  height: 100px; 
+  width: 100px;
+  height: 100px;
 }
 
 .image-item {
-  width: 50%; 
-  height: 50%; 
-  object-fit: cover; 
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
 }
 
 /* CARDS INDEX PAGE */
@@ -140,88 +136,93 @@ li:hover {
 
 .card-body {
   padding: 10px;
-  
 }
 
 .full-image {
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-
 /* FOOTER INDEX PAGE  */
-  footer {
-    height: 90px !important;
-    position: fixed !important;
-    bottom: 0px;
-    width: 100%;
-    background-color: #121212;
-  }
-  
-  .fixedSize {
-    height: 130px !important;
-  }
-  
-  .imageUser {
-    width: 30px;
-  }
-  
-  .userName {
-    font-size: 12px;
-  }
-  
-  
-  .album-cover {
-    width: 25%;
-  }
-  
-  .album-title {
-    font-size: 5rem;
-  }
-  
-  .imgPlayer {
-    width: 75px;
-  }
-  
-  .barWhite {
-    height: 4px !important;
-    border-radius: 50px;
-  }
+footer {
+  height: 90px !important;
+  position: fixed !important;
+  bottom: 0px;
+  width: 100%;
+  background-color: #121212;
+}
 
-  /* BUTTON HEAD PARTE CENTRALE  */
-  #button-after, #button-before {
-    background-color: #141414 !important;
-    color: white;
-    border: none;
-    font-size: 1.4em;
-  }
+.fixedSize {
+  height: 130px !important;
+}
 
-  /* LOGO PROFILO OPTION  */
-  #dropdownMenuButton1 {
-    background-color: #0A0A0A;
-    border: none;
-    padding: 2px 0;
-  }
+.imageUser {
+  width: 30px;
+}
 
-  .dropdown-menu {
-    background-color: #212529;
-  }
+.userName {
+  font-size: 12px;
+}
 
-  .dropdown-menu a {
-    color: white;
-  }
+#main-section {
+  margin-bottom: 5vh;
+}
 
-  /* ICONE DEL MENU FRIENDS A SCOMPARSA */
-  .icon-friend-list {
-    font-size: 1.7em;
-  }
+.album-cover {
+  width: 25%;
+}
+
+.album-title {
+  font-size: 5rem;
+}
+
+.imgPlayer {
+  width: 70px !important;
+}
+
+.imgPlayer img {
+  border-radius: 5px;
+}
+
+.barWhite {
+  height: 4px !important;
+  border-radius: 50px;
+}
+
+/* BUTTON HEAD PARTE CENTRALE  */
+#button-after,
+#button-before {
+  background-color: #141414 !important;
+  color: white;
+  border: none;
+  font-size: 1.4em;
+}
+
+/* LOGO PROFILO OPTION  */
+#dropdownMenuButton1 {
+  background-color: #0a0a0a;
+  border: none;
+  padding: 2px 0;
+}
+
+.dropdown-menu {
+  background-color: #212529;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+/* ICONE DEL MENU FRIENDS A SCOMPARSA */
+.icon-friend-list {
+  font-size: 1.7em;
+}
 /* CARDS DEL MENU FRIENDS A SCOMPARSA */
-  #cards-friend {
-    font-size: 70%;
-  }
+#cards-friend {
+  font-size: 70%;
+}
 
-  .img-cards-friend {
-    width: 80%;
-  }
-
+.img-cards-friend {
+  width: 80%;
+}
