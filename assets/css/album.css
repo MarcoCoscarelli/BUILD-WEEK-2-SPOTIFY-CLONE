@@ -147,8 +147,13 @@ nav span:hover {
   }
   
   .imgPlayer {
-    width: 75px;
+    width: 70px !important;
   }
+
+  .imgPlayer img {
+    border-radius: 5px;
+  }
+  
   
   .barWhite {
     height: 4px !important;
@@ -175,12 +180,36 @@ nav span:hover {
     width: 80%;
   }
 
+  #nameTrack {
+    padding-right: 100%;
+  }
+
 /* ------------------------------------------------------------- CSS PLAYER STYLING ------------------------------------------------  */
 .playpause-track, .prev-track, .next-track {
   opacity: 0.8;
 
   /* Smoothly transition the opacity */
   transition: opacity .2s;
+}
+
+.marquee {
+  display: inline-block;
+  animation: marquee 15s linear 2s infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.containerMarquee {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 200px;
 }
 
 .playpause-track:hover, .prev-track:hover, .next-track:hover, .seek_slider:hover, .volume_slider:hover {
@@ -193,10 +222,11 @@ nav span:hover {
   -moz-appearance: none;
   appearance: none;
   height: 5px;
-  background: rgb(224, 12, 12);
+  background: rgb(200, 200, 200);
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  border-radius: 2px;
 }
 
 .slider_container {
@@ -218,7 +248,7 @@ nav span:hover {
 }
 
 .seek_slider {  /* GRANDEZZA PLAYER LINEA */
-  width: 60%;
+  width: 100%;
 }
 
 .volume_slider { /* GRANDEZZA VOLUME LINEA */

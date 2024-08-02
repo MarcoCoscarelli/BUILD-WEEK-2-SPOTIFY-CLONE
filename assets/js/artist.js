@@ -87,6 +87,8 @@ const loadSongs = function (contatore) {
     let albumId = song.id;
     let durationSong = formatSeconds(song.duration);
     console.log(songsList);
+    let durationSong = formatSeconds(song.duration);
+    console.log(songsList);
 
     songsList.innerHTML += `
       <div class="track-row">
