@@ -39,6 +39,7 @@ function modalNostrum() {
 
 let track_index = 0;
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+const albumID = decodeURIComponent(search)
 
 const getAlbum = function () {
   fetch(URL + 108564)

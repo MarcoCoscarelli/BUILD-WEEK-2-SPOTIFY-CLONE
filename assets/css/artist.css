@@ -2,22 +2,8 @@
 font-family: 'Circular'!important;
 }
 
-nav {
-  background-color: #282828;
-  color: #B2B2B2;
-}
-
 main {
   padding-bottom: 90px !important;
-}
-
-nav i {
-  font-size: 20px !important;
-}
-
-
-nav span {
-  font-size: 14px !important;
 }
 
 

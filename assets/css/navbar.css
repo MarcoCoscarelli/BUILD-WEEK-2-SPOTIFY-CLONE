@@ -1,0 +1,20 @@
+nav {
+    background-color: #282828;
+    color: #B2B2B2;
+  }
+  
+  
+  nav i {
+    font-size: 20px !important;
+  }
+  
+  
+  nav span {
+    font-size: 14px !important;
+    color: #B2B2B2 !important;
+  }
+
+  nav span:hover {
+    color: white !;
+    cursor: pointer;
+  }

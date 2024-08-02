@@ -28,7 +28,7 @@ const infoArtist = function () {
     .then((dataTrack) => {
       // console.log(dataTrack)
       populateTracks(dataTrack)
-      showMoreTracks()
+      // showMoreTracks()
     })
 
     .catch((error) => {
@@ -125,20 +125,20 @@ const loadSongs = function (contatore) {
   songsCount += contatore
 }
 
-const showMoreTracks = function () {
-  const btnOfExpand = document.getElementById('btnOfExpand')
-  btnOfExpand.addEventListener('click', function () {
-    if (!expanded) {
-      loadSongs(5);
-      btnOfExpand.innerText = "SHOW LESS";
-    } else {
-      songsCount -= 5;
-      loadSongs(0);
-      btnOfExpand.innerText = "SHOW MORE";
-    }
-    expanded = !expanded;
-  })
-}
+// const showMoreTracks = function () {
+//   const btnOfExpand = document.getElementById('btnOfExpand')
+//   btnOfExpand.addEventListener('click', function () {
+//     if (!expanded) {
+//       loadSongs(5);
+//       btnOfExpand.innerText = "SHOW LESS";
+//     } else {
+//       songsCount -= 5;
+//       loadSongs(0);
+//       btnOfExpand.innerText = "SHOW MORE";
+//     }
+//     expanded = !expanded;
+//   })
+// }
 
 
 
