@@ -263,7 +263,8 @@ function displayArtist(singleArtist) {
     for (i = 0; i < singleArtist.data.length; i++) {
         let singleName = singleArtist.data[i].artist.name;
         let singlePic = singleArtist.data[i].artist.picture;
-        arrayName.push({ name: singleName, picture: singlePic });
+        let singleID = singleArtist.data[i].id
+        arrayName.push({ name: singleName, picture: singlePic, id: singleID});
 
         if (countMap[singleName]) {
             countMap[singleName]++;
@@ -291,32 +292,34 @@ function displayArtist(singleArtist) {
 
     cardList.style.visibility = 'hidden';
     containerSearch.innerHTML += `
-
-     <div class="container-fluid">
-    <div class="row py-2 px-4">
-        <div class="col-12 p-0 mb-3">
-            <h1 class="m-0 p-0"> Risultato piu rilevante</h1>
+    <div class="container-fluid">
+        <div class="row py-2 px-4">
+            <div class="col-12 p-0 mb-3">
+                <h1 class="m-0 p-0">Risultato più rilevante</h1>
+            </div>
+            <div class="col-5 bg-dark rounded-2 py-4">
+                <a href="./artist.html?albumId=${album.id}" class="text-decoration-none">
+                    <div class="imageArtistSearch">
+                        <img src="${relevantPic}" class="img-fluid rounded-pill" alt="Artist Picture">
+                    </div>
+                    <div>
+                        <span class="fs-2 fw-bold">${relevantName}</span>
+                    </div>
+                    <div>
+                        <span class="fw-light">Artista</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-7 bg-dark rounded-2 py-4">
+                <!-- Additional content can be added here -->
+            </div>
         </div>
-        <div class="col-5 bg-dark rounded-2 py-4">
-
-            <div class="imageArtistSearch">
-                <img src="${relevantPic}" class="img-fluid rounded-pill">
-            </div>
-            <div>
-                <span class="fs-2 fw-bold">${relevantName}</span>
-            </div>
-            <div>
-                <span class="fw-light">Artista</span>
-            </div>
-
-        </div>
-        <div class="col-7 bg-dark rounded-2 py-4">
-        
     </div>
-</div> 
+`;
+
 
     
-    `
+
 
 
 }
