@@ -180,7 +180,7 @@ function displayPlaylist() {
     cardList.innerHTML = "";
     for (let i = 0; i < arrayCard.length; i++) { // CARDS CORPO CENTRALE
         cardList.innerHTML += `
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
             <div class="cardSize rounded-3 overflow-hidden position-relative py-2 px-2 singleCard">
                 <span class="fs-5"> ${arrayCard[i].title} </span>
                     <div class="rotatedImage">
