@@ -142,159 +142,46 @@
                     <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="#">Log Out</a></li>
                     <hr />
-                    <div class="overflow-auto">
-                        <!-- SEZIONE PLAYLIST-->
-                        <ul class="navbar-nav" id="playlist-index">
-                            <!-- PLAYLIST AGGIUNTE DINAMICAMENTE -->
-                        </ul>
-                    </div>
-                </nav>
-
-                <!-- Modale per creare una nuova playlist -->
-                <div class="modal fade" id="createPlaylistModal" tabindex="-1"
-                    aria-labelledby="createPlaylistModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content bg-dark">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="createPlaylistModalLabel">Crea nuova playlist</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <input type="text" class="form-control" id="newPlaylistName"
-                                    placeholder="ES: Summer 2K21">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                                <button type="button" class="btn btn-success" onclick="saveNewPlaylist()">Salva</button>
-                            </div>
-                        </div>
-                    </div>
+                    <li>
+                      <a class="dropdown-item" role="button" onclick="modalNostrum()">Attività
+                        dei tuoi amici</a>
+                    </li>
+                  </ul>
                 </div>
-
-                <!-- Modale per modificare una playlist esistente -->
-                <div class="modal fade" id="editPlaylistModal" tabindex="-1" aria-labelledby="editPlaylistModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content bg-dark">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editPlaylistModalLabel">Modifica playlist</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <input type="text" class="form-control" id="editPlaylistName">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                                <button type="button" class="btn btn-success"
-                                    onclick="saveEditedPlaylist()">Salva</button>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+            </div>
+            <!-- SEZIONE HERO -->
+            <div class="my-3 d-flex h-75">
+              <div class="d-flex flex-column justify-content-end flex-grow-1">
+                <div class="d-flex align-items-center">
+                  <img width="30" height="30" src="https://img.icons8.com/color/48/verified-badge.png"
+                    alt="verified-badge" class="me-2" /><span> Artista Verificato</span>
                 </div>
-
-                <!-- Modale per confermare l'eliminazione di una playlist -->
-                <div class="modal fade" id="deletePlaylistModal" tabindex="-1"
-                    aria-labelledby="deletePlaylistModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content bg-dark text-white">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deletePlaylistModalLabel">Elimina playlist</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Sei sicuro di voler eliminare questa playlist?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                                <button type="button" class="btn btn-danger"
-                                    onclick="confirmDeletePlaylist()">Elimina</button>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                  <h1 class="p-0 fw-bold display-1 mb-3" id="artistTitle"></h1>
                 </div>
-
-                <!-- SEZIONE CENTRALE -->
-
-                <!-- SECONDA COLONNA -->
-                <main class="col-10 gradient-bg mb-4 ms-1 vh-100 overflow-auto bg-dark" id="test_02">
-
-                    <!-- INTESTAZIONE PARTE CENTRALE-->
-                    <div id="imageBackground" class="container-fluid m-0 pt-4 position-r">
-                        <div class="row d-flex justify-content-between">
-                            <div class="col-6">
-                                <button class="rounded-circle btn btn-dark opacity-75 fs-6 text-white me-3"
-                                    id="button-before">
-                                    <i class="bi bi-chevron-left text-white"></i>
-                                </button>
-                                <button class="rounded-circle btn btn-dark opacity-75 fs-6 text-white"
-                                    id="button-after">
-                                    <i class="bi bi-chevron-right"></i>
-                                </button>
-                            </div>
-
-                            <div class="col-6 d-flex justify-content-end">
-                                <div class="dropdown">
-                                    <button
-                                        class="btn btn-secondary dropdown-toggle d-flex align-items-center rounded-pill ps-0 pe-2 py-0"
-                                        type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <div class="imageUser me-1">
-                                            <img src="assets/imgs/main/image-1.jpg" class="img-fluid rounded-pill" />
-                                        </div>
-                                        <span class="userName me-1 pe-2 fw-bold">Campion Luca</span>
-                                    </button>
-                                    <ul class="dropdown-menu me-1" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                                        <li><a class="dropdown-item" href="#">Log Out</a></li>
-                                        <hr />
-                                        <li>
-                                            <a class="dropdown-item" role="button" onclick="modalNostrum()">Attività
-                                                dei tuoi amici</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- SEZIONE HERO -->
-                        <div class="my-3 d-flex h-75">
-                            <div class="d-flex flex-column justify-content-end flex-grow-1">
-                                <div class="d-flex align-items-center">
-                                    <img width="30" height="30" src="https://img.icons8.com/color/48/verified-badge.png"
-                                        alt="verified-badge" class="me-2" /><span> Artista Verificato</span>
-                                </div>
-                                <div>
-                                    <h1 class="p-0 fw-bold display-1 mb-3" id="artistTitle"> I Pinguini Tattici Nucleari
-                                    </h1>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <div class="d-flex align-items-center justofy-content-center">
-                                            <span class="fw-bold" id="artistFan">
-                                                1.000.000 ascoltatori mensili
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="d-flex align-items-center justofy-content-center">
+                      <span class="fw-bold" id="artistFan">
+                      </span>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
-                    <section class="container-fluid p-0 m-0 master-section">
-                        <div class="row px-4 py-2 d-flex align-items-center justify-content-start">
-                            <div class="col-3 d-flex align-items-center gap-4 my-3">
-                                <button class="btn btn-success rounded-circle border"><i
-                                        class="bi bi-play-fill fs-2 text-black"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-light fw-bold">FOLLOWING</button>
-                                <button class="btn rounded-5 px-2 border-0 active"><i
-                                        class="bi bi-three-dots fs-4"></i></button>
-                            </div>
+          <section class="container-fluid p-0 m-0 mb-5 master-section">
+            <div class="row px-4 py-2 d-flex align-items-center justify-content-start">
+              <div class="col-3 d-flex align-items-center gap-4 my-3">
+                <button class="btn btn-success rounded-circle border"><i class="bi bi-play-fill fs-2 text-black"></i>
+                </button>
+                <button type="button" class="btn btn-outline-light fw-bold">FOLLOWING</button>
+                <button class="btn rounded-5 px-2 border-0 active"><i class="bi bi-three-dots fs-4"></i></button>
+              </div>
 
                             <!-- SEZIONE CHE ANDRA' A POPOLARSI DA JS -->
                             <div class="row">
@@ -322,28 +209,31 @@
                     </div>
                   </div>
                   </div> -->
-                                    </div>
-                                </div> <!-- DIV FINALE DELLA MAXI COL-6 -->
+                  </div>
+                  <div class="col-12">
+                    <button id="btnOfExpand">SHOW MORE</button>
+                  </div>
+                </div> <!-- DIV FINALE DELLA MAXI COL-6 -->
 
-                                <div class="col-3">
-                                    <div class="mb-5">
-                                        <h3>Brani che ti piacciono</h3>
-                                    </div>
-                                    <div class="d-flex align-items-center" id="imgSm">
-                                        <img src="./assets/imgs/main/image-19.jpg" alt="img a caso" class="w-25 me-2">
-                                        <div>
-                                            <h6> Hai messo Mi piace a ....</h6>
-                                            <p>Di ....</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- DIV FINALE DELLA MAXI COL-3-->
-                            </div> <!--DIV FINALE DELLA ROW CHE RACCHIUDE LE MAXI COL-6 COL-3-->
-
-                        </div> <!--DIV FINALE DELLA ROW CHE RACCHIUDE LA ROW  CHE RACCHIUDE LE MAXI COL-6 COL-3--->
-                    </section>
-                    <!--DIV FINALE DEL CONTAINER CHE RACCHIUDE LA ROW CHE RACCHIUDE LE MAXI COL-6 COL-3-->
-                </main>
-            </div> <!-- DIV CHE RACCHIUDE DALLA COLONNA SINISTRA AL MAIN BISOGNA CONTROLLARLA!!!-->
+                <div class="col-3">
+                  <div class="mb-5">
+                    <h3>Brani che ti piacciono</h3>
+                  </div>
+                  <div class="d-flex align-items-center" id="imgSm">
+                    <!-- <img src="./assets/imgs/main/image-19.jpg" alt="img a caso" class="w-25 me-2"> -->
+                    <div>
+                      <h6> Hai messo Mi piace a ....</h6>
+                      <p>Di ....</p>
+                    </div>
+                  </div>
+                </div> <!-- DIV FINALE DELLA MAXI COL-3-->
+              </div> <!--DIV FINALE DELLA ROW CHE RACCHIUDE LE MAXI COL-6 COL-3-->
+              
+            </div> <!--DIV FINALE DELLA ROW CHE RACCHIUDE LA ROW  CHE RACCHIUDE LE MAXI COL-6 COL-3--->
+          </section>
+          <!--DIV FINALE DEL CONTAINER CHE RACCHIUDE LA ROW CHE RACCHIUDE LE MAXI COL-6 COL-3-->
+        </main>
+      </div> <!-- DIV CHE RACCHIUDE DALLA COLONNA SINISTRA AL MAIN BISOGNA CONTROLLARLA!!!-->
 
         </div> <!-- DIV DI CHIUSURA DEL CONTAINER-FLUID CHE SI APRE SOTTO A BODY??-->
     </div>

@@ -26,100 +26,99 @@
   <main>
     <div class="container-fluid p-0 m-0 bg-black">
       <div class="row ps-3 p-0">
-        <!-- PRIMA COLONNA-->
-        <nav class="col-2 bg-black d-flex flex-column vh-100  pt-3">
-          <p class="bi bi-three-dots"></p>
-          <a href="./index.html" class="bi bi-house-fill link-item">&nbspHome</a>
-          <a href="./search.html" class="bi bi-search link-item">&nbspCerca</a>
-          <p class="bi bi-music-note-list mb-4">&nbspLa tua libreria</p>
-          <p class="bi bi-plus-square-fill" role="button" onclick="createPlaylist()">
-              &nbspCrea playlist
-          </p>
-          <p class="bi bi-heart-fill">&nbspBrani che ti piacciono</p>
-          <p class="bi bi-bookmark-fill">&nbspI tuoi episodi</p>
-          <hr />
-          <div class="overflow-auto">
-              <!-- SEZIONE PLAYLIST-->
-              <ul class="navbar-nav" id="playlist-index">
-                  <!-- PLAYLIST AGGIUNTE DINAMICAMENTE -->
-              </ul>
+        <div class="col-12 col-lg-3 fs-3 vh-100 d-flex flex-column">
+          <div>
+            <section class="mb-3">
+              <div role="button">
+                <i class="bi bi-three-dots"></i>
+              </div>
+              <div role="button" class="d-flex align-items-center">
+                <i class="bi bi-house-door"></i>
+                <a href="./index.html"><span class="fs-6 ms-2"> Home</span></a>
+              </div>
+              <div role="button">
+                <a href="search.html" class="text-decoration-none text-light d-flex align-items-center">
+                  <i class="bi bi-search"></i>
+                  <span class="fs-6 ms-2"> Cerca</span>
+                </a>
+              </div>
+              <div role="button" class="d-flex align-items-center">
+                <i class="bi bi-collection"></i>
+                <span class="fs-6 ms-2"> La mia libreria</span>
+              </div>
+            </section>
+            <section class="border-bottom">
+              <div role="button" class="d-flex align-items-center">
+                <i class="bi bi-plus-square-fill"></i>
+                <span class="fs-6 ms-2"> Crea playlist</span>
+              </div>
+              <div role="button" class="d-flex align-items-center">
+                <i class="bi bi-heart-fill"></i>
+                <span class="fs-6 ms-2"> Brani che ti piacciono</span>
+              </div>
+              <div role="button" class="d-flex align-items-center mb-3">
+                <i class="bi bi-bookmark-fill"></i>
+                <span class="fs-6 ms-2"> I tuoi episodi</span>
+              </div>
+            </section>
           </div>
-      </nav>
-
-        <!-- Modale per creare una nuova playlist -->
-        <div class="modal fade" id="createPlaylistModal" tabindex="-1" aria-labelledby="createPlaylistModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-              <div class="modal-header">
-                <h5 class="modal-title" id="createPlaylistModalLabel">
-                  Crea nuova playlist
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <input type="text" class="form-control" id="newPlaylistName" placeholder="ES: Summer 2K21" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Chiudi
-                </button>
-                <button type="button" class="btn btn-success" onclick="saveNewPlaylist()">
-                  Salva
-                </button>
-              </div>
+          <div class="mt-3 fs-6 vh-100 overflow-auto">
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
             </div>
-          </div>
-        </div>
-
-        <!-- Modale per modificare una playlist esistente -->
-        <div class="modal fade" id="editPlaylistModal" tabindex="-1" aria-labelledby="editPlaylistModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-              <div class="modal-header">
-                <h5 class="modal-title" id="editPlaylistModalLabel">
-                  Modifica playlist
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <input type="text" class="form-control" id="editPlaylistName" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Chiudi
-                </button>
-                <button type="button" class="btn btn-success" onclick="saveEditedPlaylist()">
-                  Salva
-                </button>
-              </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
             </div>
-          </div>
-        </div>
-
-        <!-- Modale per confermare l'eliminazione di una playlist -->
-        <div class="modal fade" id="deletePlaylistModal" tabindex="-1" aria-labelledby="deletePlaylistModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content bg-dark text-white">
-              <div class="modal-header">
-                <h5 class="modal-title" id="deletePlaylistModalLabel">
-                  Elimina playlist
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Sei sicuro di voler eliminare questa playlist?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Chiudi
-                </button>
-                <button type="button" class="btn btn-danger" onclick="confirmDeletePlaylist()">
-                  Elimina
-                </button>
-              </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
+            </div>
+            <div class="my-2">
+              <span> Custom Playlist Name</span>
             </div>
           </div>
         </div>
