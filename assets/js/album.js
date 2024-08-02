@@ -256,6 +256,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const albumInfo = document.getElementById('album-info');
         albumInfo.style.backgroundColor = mainColor;
 
+        // Applicare il gradiente a #main-section
+        const mainSection = document.getElementById('main-section');
+        mainSection.style.backgroundImage = `linear-gradient(to bottom, ${mainColor} 1%, transparent 20%)`;
       })
       .catch((error) => {
         console.error(error);

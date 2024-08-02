@@ -22,7 +22,7 @@
 </head>
 
 
-<body class="bg-dark text-white overflow-hidden">
+<body class="bg-dark text-white overflow-y-hidden">
     <!-- SUDDIVISIONE COLONNE-->
     <div class="container-fluid m-0 p-0">
 
@@ -30,7 +30,7 @@
             <!-- SX -->
             <div class="d-flex p-0">
                 <!-- PRIMA COLONNA-->
-                <nav class="col-3 bg-black d-flex flex-column vh-100 px-4 py-3 m-0">
+                <nav class="col-3 bg-black d-flex flex-column vh-100 px-4 py-3 m-0 d-none d-md-block col-sm-3 col-lg-3">
                     <div class="mb-4">
                         <div class="col-12 mb-2">
                             <div>
@@ -39,30 +39,30 @@
                         </div>
                         <div class="col-12 d-flex align-items-center mb-2">
                             <a href="index.html" class="text-decoration-none text-light d-flex align-items-center">
-                            <div class="me-3">
-                                <i class="bi bi-house-fill"></i>
-                            </div>
-                            <div>
-                                <span>Home</span>
-                            </div>
-                        </a>
+                                <div class="me-3">
+                                    <i class="bi bi-house-fill"></i>
+                                </div>
+                                <div>
+                                    <span>Home</span>
+                                </div>
+                            </a>
                         </div>
                         <div class="col-12  d-flex align-items-center mb-2">
                             <a href="search.html" class="text-decoration-none text-light d-flex align-items-center">
-                            <div class="me-3">
-                                <svg data-encore-id="icon" role="img" width="19" height="19" aria-hidden="true"
-                                    fill="currentColor"
-                                    class="Svg-sc-ytk21e-0 bneLcE search-active-icon QbaKKdcHNA2x3_YJvpYu"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 0 1-2.077 5.816l4.344 4.344a1 1 0 0 1-1.414 1.414l-4.353-4.353a9.454 9.454 0 0 1-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div>
-                                <span>Cerca</span>
-                            </div>
-                        </a>
+                                <div class="me-3">
+                                    <svg data-encore-id="icon" role="img" width="19" height="19" aria-hidden="true"
+                                        fill="currentColor"
+                                        class="Svg-sc-ytk21e-0 bneLcE search-active-icon QbaKKdcHNA2x3_YJvpYu"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 0 1-2.077 5.816l4.344 4.344a1 1 0 0 1-1.414 1.414l-4.353-4.353a9.454 9.454 0 0 1-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span>Cerca</span>
+                                </div>
+                            </a>
                         </div>
                         <div class="col-12  d-flex align-items-center">
                             <div class="me-3">
@@ -196,10 +196,11 @@
                 <!-- SEZIONE CENTRALE -->
 
                 <!-- SECONDA COLONNA -->
-                <main class="col-10 gradient-bg mb-4 ms-1 vh-100 overflow-auto bg-dark" id="test_02">
+                <main class="col-12 gradient-bg mb-4 ms-1 vh-100 overflow-auto bg-dark" id="test_02">
 
                     <!-- INTESTAZIONE PARTE CENTRALE-->
-                    <div id="imageBackground" class="container-fluid m-0 pt-4 position-r d-flex flex-column justify-content-between">
+                    <div id="imageBackground"
+                        class="container-fluid m-0 pt-4 position-r d-flex flex-column justify-content-between">
                         <div class="row d-flex justify-content-between">
                             <div class="col-6">
                                 <button class="rounded-circle btn btn-dark opacity-75 fs-6 text-white me-3"
@@ -221,7 +222,7 @@
                                         <div class="imageUser me-1">
                                             <img src="assets/imgs/main/image-1.jpg" class="img-fluid rounded-pill" />
                                         </div>
-                                        <span class="userName me-1 pe-2 fw-bold">Campion Luca</span>
+                                        <span class="userName me-1 pe-2 fw-bold">User</span>
                                     </button>
                                     <ul class="dropdown-menu me-1" aria-labelledby="dropdownMenuButton1">
                                         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -235,6 +236,7 @@
                                     </ul>
                                 </div>
                             </div>
+
                         </div>
                         <!-- SEZIONE HERO -->
                         <div class="my-3 d-flex">
@@ -275,7 +277,7 @@
 
                             <!-- SEZIONE CHE ANDRA' A POPOLARSI DA JS -->
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-6 col-xl-8 col-lg-9 col-md-10">
                                     <div class="mb-4">
                                         <h3>Popolari</h3>
                                     </div>
@@ -300,18 +302,16 @@
                   </div>
                   </div> -->
                                     </div>
-                                    <div class="col-12 my-3">
+                                    <div class="col-6 my-3">
                                         <button id="btnOfExpand" class="btn btn-outline-light">SHOW MORE</button>
-                                      </div>
+                                    </div>
                                 </div> <!-- DIV FINALE DELLA MAXI COL-6 -->
 
-                                <div class="col-6">
+                                <div class="col-6 col-xl-4 d-none d-lg-block col-sm-3 col-lg-3">
                                     <div class="mb-4">
                                         <h3>Brani che ti piacciono</h3>
                                     </div>
                                     <div class="d-flex align-items-center" id="imgSm">
-                                   
-                                        
                                     </div>
                                 </div> <!-- DIV FINALE DELLA MAXI COL-3-->
                             </div> <!--DIV FINALE DELLA ROW CHE RACCHIUDE LE MAXI COL-6 COL-3-->
@@ -409,9 +409,10 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class=" d-flex align-items-center p-4 border-top border-dark">
+    <footer class="d-flex align-items-center p-4 border-top border-dark col-12">
+
         <div class="container-fluid m-0">
-            <div class="row">
+            <div class="row d-none d-md-block col-md-12 d-flex">
                 <div class="col-3 d-flex align-items-center gap-2">
                     <div class="imgPlayer me-3">
                         <img src="assets/imgs/search/image-13.jpeg" class="img-fluid" />
@@ -446,6 +447,36 @@
                     </div>
                 </div>
             </div>
+
+            <!-- footer mobile -->
+
+            <div class="container-fluid m-0 p-0 wh-100 d-block g-0 d-md-none col-12">
+                <div class="row m-0 g-0">
+
+                    <div
+                        class="foot-pill-player col-12 d-flex justify-content-center align-items-center py-1 wh-100 g-0">
+                        <p class="pe-3 mx-4">BRIGA - SEI DI MATTINA - BY HONIRO ...</p>
+                        <i class="bi bi-music-player fs-1 pe-3"></i>
+                        <i class="bi bi-heart fs-1 pe-3"></i>
+                        <i class="bi bi-play-fill fs-1"></i>
+                    </div>
+
+                    <div class="row m-0 foot-gradient py-1">
+                        <div class="col-4 d-flex flex-column text-center mb-2">
+                            <div> <i class="bi bi-house-door fs-1"></i> </div>
+                            <div> Home </div>
+                        </div>
+
+                        <div class="col-4 d-flex flex-column text-center mb-2">
+                            <div> <i class="bi bi-search fs-1"></i> </div>
+                            <div> Cerca </div>
+                        </div>
+
+                        <div class="col-4 d-flex flex-column text-center mb-2">
+                            <div> <i class="bi bi-journal-code fs-1"></i> </div>
+                            <div> La tua libreria </div>
+                        </div>
+                    </div>
 
     </footer>
 

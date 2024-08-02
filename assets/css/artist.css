@@ -1,5 +1,126 @@
 * {
   font-family: circular, sans-serif;
+  box-sizing: border-box !important;
+}
+
+footer {
+  /* height: 15 !important; */
+  position: fixed !important;
+  bottom: 0px;
+  /* NON TOCCARE, CALCOLATO AL MILLIMETRO PER FOOTER MOBILE !! */
+  width: 100%;
+}
+
+.foot-gradient {
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.3057816876750701) 0%, rgba(0,0,0,0.8015800070028012) 43%, rgba(0,0,0,1) 70%);
+}
+
+.foot-pill-player {
+  border-radius: 15px;
+  background-color: #282828;
+}
+
+#colorSpecSpotify {
+  background-color: #282828 !important;
+}
+
+.foot-pill-player p {
+  font-size: 12px;
+}
+
+#inputSearch:hover {
+  border: 2px solid rgb(100, 98, 98) !important;
+}
+
+#inputSearch:focus {
+  border: 2px solid white !important;
+}
+
+.cardSize {
+  height: 155px !important;
+}
+
+.singleCard {
+  cursor: pointer;
+}
+
+.singleCard:hover {
+  opacity: 0.3;
+}
+
+.rotatedImage {
+  transform: rotate(25deg);
+  width: 140px !important;
+  position: absolute;
+  top: 40%;
+  left: 58%;
+}
+
+::placeholder {
+  font-size: 13px !important;
+  padding-bottom: 10px !important;
+}
+
+.customSearch {
+  font-size: 16px !important;
+}
+
+.fixedSize {
+  height: 130px !important;
+}
+
+.imageArtistSearch {
+  width: 100px;
+}
+
+.imageUser {
+  width: 30px;
+}
+
+.userName {
+  font-size: 12px;
+}
+
+.yellow-back {
+  background-color: #D0B44A;
+}
+
+.album-cover {
+  width: 25%;
+}
+
+.album-title {
+  font-size: 5rem;
+}
+
+.imgPlayer {
+  width: 75px;
+}
+
+.barWhite {
+  height: 4px !important;
+  border-radius: 50px;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 nav {
