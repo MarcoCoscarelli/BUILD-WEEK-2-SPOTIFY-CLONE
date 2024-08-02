@@ -1,9 +1,12 @@
 const urlArtist =
-  "https://striveschool-api.herokuapp.com/api/deezer/artist/412";
-// console.log(urlArtist);
+  "https://striveschool-api.herokuapp.com/api/deezer/artist/";
+const addressBarParameters = new URLSearchParams(location.search)
+const artistID = addressBarParameters.get('artistID');
+
+
 
 const infoArtist = function () {
-  fetch(urlArtist)
+  fetch(urlArtist + artistID)
     .then((response) => {
       // console.log(response);
       if (response.ok) {
@@ -84,7 +87,7 @@ const populateTracks = function (dataTrack) {
 
 const loadSongs = function (contatore) {
   const songsList = document.getElementById('songsList')
-  songsList.innerHTML = '' 
+  songsList.innerHTML = ''
   for (let i = 0; i < top50Songs.length && i < songsCount + contatore; i++) {
     let song = top50Songs[i]
     let artistName = song.artist.name
