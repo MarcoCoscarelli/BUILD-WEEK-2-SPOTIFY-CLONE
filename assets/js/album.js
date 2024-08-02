@@ -136,6 +136,7 @@ function displaySongs(songs, track_list) {
 
 function displaySongs(songs, track_list) {
   const songsContainer = document.getElementById("songs");
+  const marquee = document.getElementById('marquee');
   songs.forEach((song, index) => {
     const songDiv = document.createElement("div");
     songDiv.classList.add("row", "px-4", "py-2");
@@ -147,8 +148,9 @@ function displaySongs(songs, track_list) {
                       <span>${index + 1}</span>
                   </div>
                   <div class="d-flex flex-column">
-                      <span class="fw-bold">${song.title}</span>
+                      <span id="textScroll" class="fw-bold">${song.title}</span>
                       <span>${song.artist.name}</span>
+              
                   </div>
               </div>
               <div class="col-3 d-flex justify-content-end">
@@ -160,6 +162,13 @@ function displaySongs(songs, track_list) {
           </div>
       `;
     songDiv.addEventListener("click", () => loadTrack(index, track_list));
+    songDiv.addEventListener("click", function() {
+      if (marquee.classList.contains('marquee')) {
+        marquee.classList.remove('marquee');
+      } else {
+        marquee.classList.add("marquee");
+      }
+    })
     songsContainer.appendChild(songDiv);
 
   });
