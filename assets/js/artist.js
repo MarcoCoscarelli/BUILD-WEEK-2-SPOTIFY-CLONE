@@ -1,14 +1,14 @@
-const url ="https://striveschool-api.herokuapp.com/api/deezer/artist/"
-const urlParams = new URLSearchParams(location.search);
-const artistId = urlParams.get("artistId");
+// const url ="https://striveschool-api.herokuapp.com/api/deezer/artist/"
+// const urlParams = new URLSearchParams(location.search);
+// const artistId = urlParams.get("artistId");
 
 
-// const urlArtist =
-//     "https://striveschool-api.herokuapp.com/api/deezer/artist/412";
-// console.log(urlArtist);
+const urlArtist =
+    "https://striveschool-api.herokuapp.com/api/deezer/artist/412";
+console.log(urlArtist);
 
 const infoArtist = function () {
-    fetch(url + artistId)
+    fetch(urlArtist)
         .then((response) => {
             // console.log(response);
             if (response.ok) {
